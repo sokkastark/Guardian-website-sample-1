@@ -46,7 +46,7 @@ export default function Hero() {
           and BEHIND the holographic cards (Layer 1).
           STAYS ANCHORED STILL per user request, with face 100% visible.
           ───────────────────────────────────────────────────────────── */}
-      <div className="absolute bottom-0 left-[30%] sm:left-[32%] lg:left-[34%] xl:left-[36%] pointer-events-none z-20 hidden lg:block">
+      <div className="absolute bottom-0 left-[30%] sm:left-[32%] lg:left-[34%] xl:left-[36%] ml-[20px] pointer-events-none z-20 hidden lg:block">
         <div
           className="relative will-change-transform"
           style={{
