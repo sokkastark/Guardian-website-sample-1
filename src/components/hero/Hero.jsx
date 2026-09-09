@@ -46,7 +46,7 @@ export default function Hero() {
           and BEHIND the holographic cards (Layer 1).
           STAYS ANCHORED STILL per user request, with face 100% visible.
           ───────────────────────────────────────────────────────────── */}
-      <div className="absolute bottom-0 left-[30%] sm:left-[32%] lg:left-[34%] xl:left-[36%] ml-[20px] pointer-events-none z-20 hidden lg:block">
+      <div className="absolute bottom-0 left-[30%] sm:left-[32%] lg:left-[34%] xl:left-[36%] ml-[120px] pointer-events-none z-20 hidden lg:block">
         <div
           className="relative will-change-transform"
           style={{
@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 xl:col-span-4 flex flex-col items-start pt-4 lg:pt-0 relative z-30"
+            className="lg:col-span-5 xl:col-span-5 flex flex-col items-start pt-4 lg:pt-0 relative z-30"
             style={{
               transform: 'translate3d(0px, 0px, 0px)',
             }}
@@ -88,10 +88,10 @@ export default function Hero() {
               <span>Healthcare Intelligence</span>
             </div>
 
-            {/* Headline matching user's reference mockup */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-bold text-white tracking-tight leading-[1.12] mb-5">
-              <span className="block text-white">Healthcare data,</span>
-              <span className="block mt-1">
+            {/* Headline formatted into exactly two lines */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[48px] font-bold text-white tracking-tight leading-[1.14] mb-5">
+              <span className="block text-white whitespace-nowrap">Healthcare data,</span>
+              <span className="block mt-1 whitespace-nowrap">
                 turned into <span className="text-[#a855f7]">action.</span>
               </span>
             </h1>
@@ -141,13 +141,13 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* LAYER 3: Center-Left Column: 5 Data Stream Holographic Pills (BEHIND DOCTOR, z-10) */}
-          <div className="lg:col-span-3 xl:col-span-3 hidden sm:flex items-center justify-start lg:pl-2 relative z-10">
+          {/* LAYER 1 (Reversed): Center-Left Column: 5 Data Stream Holographic Pills (IN FRONT OF DOCTOR, z-30) */}
+          <div className="lg:col-span-2 xl:col-span-2 hidden sm:flex items-center justify-start lg:pl-1 relative z-30">
             <HeroDataPills mouseX={mouseX} mouseY={mouseY} />
           </div>
 
-          {/* LAYER 1: Right Column: Holographic Glass HUD Cards (IN FRONT OF DOCTOR, z-30, aligned with doctor's gaze & tablet) */}
-          <div className="lg:col-span-5 xl:col-span-5 relative w-full flex items-center justify-end z-30 pt-8 sm:pt-12 lg:pt-16 xl:pt-20">
+          {/* LAYER 3 (Reversed): Right Column: Holographic Glass HUD Cards (BEHIND DOCTOR, z-10, aligned with doctor's gaze & tablet) */}
+          <div className="lg:col-span-5 xl:col-span-5 relative w-full flex items-center justify-end z-10 pt-8 sm:pt-12 lg:pt-16 xl:pt-20 -translate-y-[20px]">
             <HeroVisualCards mouseX={mouseX} mouseY={mouseY} />
           </div>
 

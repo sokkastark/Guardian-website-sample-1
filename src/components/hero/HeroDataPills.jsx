@@ -53,36 +53,53 @@ export default function HeroDataPills({ mouseX = 0, mouseY = 0 }) {
 
   return (
     <div
-      className="flex flex-col gap-2.5 sm:gap-3 pointer-events-auto select-none will-change-transform"
+      className="relative pointer-events-auto select-none"
       style={{
-        transform: `translate3d(${mouseX * 16}px, ${mouseY * 14}px, 0px)`,
+        perspective: '1200px',
       }}
     >
-      {pills.map((pill, idx) => {
-        const Icon = pill.icon;
-        return (
-          <motion.div
-            key={pill.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 + idx * 0.08, ease: 'easeOut' }}
-            whileHover={{ scale: 1.04, x: 4 }}
-            className="flex items-center gap-3 p-2 sm:p-2.5 pr-4 rounded-2xl bg-[#1c2438]/55 backdrop-blur-xl border border-white/20 hover:border-white/40 shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-all cursor-default group"
-          >
-            <div className={`w-9 h-9 rounded-xl ${pill.iconBg} bg-gradient-to-br ${pill.color} flex items-center justify-center text-white shrink-0 shadow-md ${pill.shadow}`}>
-              <Icon className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <span className="text-xs font-bold text-white block tracking-tight group-hover:text-purple-200 transition-colors">
-                {pill.label}
-              </span>
-              <span className="text-[10px] text-white/75 block truncate font-medium">
-                {pill.sub}
-              </span>
-            </div>
-          </motion.div>
-        );
-      })}
+      {/* 3D Perspective Plane for Left Pills */}
+      <div
+        className="will-change-transform flex flex-col gap-2.5 sm:gap-3"
+        style={{
+          transform: `translate3d(${mouseX * 36}px, ${mouseY * 26}px, 25px) rotateX(${-mouseY * 8}deg) rotateY(${mouseX * 10}deg)`,
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {pills.map((pill, idx) => {
+          const Icon = pill.icon;
+          return (
+            <motion.div
+              key={pill.id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 + idx * 0.08, ease: 'easeOut' }}
+              whileHover={{ scale: 1.04, x: 4 }}
+              className="relative overflow-hidden flex items-center gap-3 p-2 sm:p-2.5 pr-4 rounded-2xl bg-[#1c2438]/60 backdrop-blur-xl border border-white/25 hover:border-white/45 shadow-[0_10px_28px_rgba(0,0,0,0.3)] transition-all cursor-default group"
+            >
+              {/* Holographic light reflection sheen that shifts with mouse */}
+              <div
+                className="absolute inset-0 rounded-2xl pointer-events-none opacity-40 bg-gradient-to-tr from-transparent via-white/5 to-cyan-200/15"
+                style={{
+                  transform: `translate3d(${mouseX * -18}px, ${mouseY * -18}px, 0)`,
+                }}
+              />
+
+              <div className={`relative z-10 w-9 h-9 rounded-xl ${pill.iconBg} bg-gradient-to-br ${pill.color} flex items-center justify-center text-white shrink-0 shadow-md ${pill.shadow}`}>
+                <Icon className="w-4 h-4" />
+              </div>
+              <div className="relative z-10 min-w-0">
+                <span className="text-xs font-bold text-white block tracking-tight group-hover:text-purple-200 transition-colors">
+                  {pill.label}
+                </span>
+                <span className="text-[10px] text-white/75 block truncate font-medium">
+                  {pill.sub}
+                </span>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }

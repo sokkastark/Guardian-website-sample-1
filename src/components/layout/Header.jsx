@@ -40,23 +40,33 @@ export default function Header() {
           >
             <div className="relative h-9 sm:h-10 w-auto flex items-center">
               <img
-                src="/logos/Logo.webp"
+                src={isScrolled ? '/logos/Logo.webp' : '/logos/logo-white.png'}
                 alt="Guardian Health Service"
-                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-105"
                 onError={(e) => {
-                  e.currentTarget.src = '/logos/logo-black.webp';
+                  e.currentTarget.src = '/logos/Logo.webp';
                 }}
               />
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1.5 rounded-full bg-[#f2ecf9]/80 border border-[#e1e1e5] backdrop-blur-md">
+          <nav
+            className={`hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1.5 rounded-full transition-all duration-300 ${
+              isScrolled
+                ? 'bg-[#f2ecf9]/80 border border-[#e1e1e5] backdrop-blur-md'
+                : 'bg-white/15 border border-white/25 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.2)]'
+            }`}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3.5 py-1.5 text-xs xl:text-sm font-medium text-[#35304c] hover:text-[#7b3fc7] hover:bg-white rounded-full transition-all duration-200"
+                className={`px-3.5 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 ${
+                  isScrolled
+                    ? 'text-[#35304c] hover:text-[#7b3fc7] hover:bg-white'
+                    : 'text-white/90 hover:text-white hover:bg-white/15'
+                }`}
               >
                 {link.label}
               </a>
@@ -67,7 +77,11 @@ export default function Header() {
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="mailto:support@itsguardian.com"
-              className="px-4 py-2 text-xs lg:text-sm font-medium text-[#35304c] hover:text-[#7b3fc7] transition-colors"
+              className={`px-4 py-2 text-xs lg:text-sm font-medium transition-colors ${
+                isScrolled
+                  ? 'text-[#35304c] hover:text-[#7b3fc7]'
+                  : 'text-white hover:text-purple-200'
+              }`}
             >
               Contact Us
             </a>
@@ -87,7 +101,11 @@ export default function Header() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#1c1636] hover:text-[#7b3fc7] hover:bg-[#f2ecf9] focus:outline-none"
+              className={`p-2 rounded-lg focus:outline-none transition-colors ${
+                isScrolled
+                  ? 'text-[#1c1636] hover:text-[#7b3fc7] hover:bg-[#f2ecf9]'
+                  : 'text-white hover:text-purple-200 hover:bg-white/10'
+              }`}
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
