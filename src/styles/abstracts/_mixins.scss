@@ -1,0 +1,55 @@
+// Guardian Health Service — SCSS Mixins (itsguardian.com Light Aesthetic)
+@use './variables' as *;
+
+// Frosted White Glass Surface
+@mixin glass-surface($bg: $glass-bg-subtle, $blur: 16px, $border: $glass-border-subtle) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+}
+
+// Sophisticated Headline Gradient using itsguardian.com dark obsidian to vibrant purple
+@mixin text-gradient($start: #1c1636, $middle: #7b3fc7, $end: #9565d2) {
+  background: linear-gradient(135deg, $start 20%, $middle 70%, $end 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Guardian Purple Ambient Glow
+@mixin purple-glow($radius: 20px, $opacity: 0.15) {
+  box-shadow: 0 0 $radius rgba($guardian-purple, $opacity);
+}
+
+// Guardian Pill Button
+@mixin guardian-button-pill {
+  background-color: $guardian-purple;
+  padding: 14px 28px;
+  border-radius: 46px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    background-color: $guardian-purple-light;
+    box-shadow: $shadow-purple;
+    transform: translateY(-1px);
+  }
+}
+
+// Responsive Breakpoint Mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: 1280px) { @content; }
+  }
+}

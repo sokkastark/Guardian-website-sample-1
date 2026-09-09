@@ -1,0 +1,41 @@
+// Guardian Health Service — Glassmorphic Components (itsguardian.com Light Theme)
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(225, 225, 229, 0.9);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -10px rgba(28, 22, 54, 0.06), 0 4px 6px -2px rgba(28, 22, 54, 0.02);
+}
+
+.glass-panel-elevated {
+  background: #ffffff;
+  border: 1px solid rgba(225, 225, 229, 0.9);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px -12px rgba(28, 22, 54, 0.08), 0 8px 12px -4px rgba(28, 22, 54, 0.03);
+}
+
+.glass-panel-interactive {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(225, 225, 229, 0.9);
+  border-radius: 1.25rem;
+  transition: $transition-smooth;
+  box-shadow: 0 8px 25px -8px rgba(28, 22, 54, 0.06);
+
+  &:hover {
+    background: #ffffff;
+    border-color: rgba(123, 63, 199, 0.4);
+    box-shadow: 0 16px 36px -10px rgba(123, 63, 199, 0.15), 0 4px 10px -2px rgba(28, 22, 54, 0.03);
+    transform: translateY(-2px);
+  }
+}
+
+.glass-badge {
+  background: rgba(123, 63, 199, 0.08);
+  border: 1px solid rgba(123, 63, 199, 0.25);
+  border-radius: 9999px;
+  color: $guardian-purple;
+}

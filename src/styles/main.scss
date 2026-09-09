@@ -1,0 +1,95 @@
+// Guardian Health Service — Master SCSS Architecture (itsguardian.com Light Theme)
+@use './abstracts/variables' as *;
+@use './abstracts/mixins' as *;
+@use './components/glass' as *;
+@use './components/effects' as *;
+
+:root {
+  --color-guardian-bg: #{$guardian-bg-root};
+  --color-guardian-dark: #{$guardian-dark};
+  --color-guardian-body: #{$guardian-body};
+  --color-guardian-purple: #{$guardian-purple};
+  --color-guardian-purple-light: #{$guardian-purple-light};
+  --color-guardian-purple-soft: #{$guardian-purple-soft};
+  --color-guardian-coral: #{$guardian-coral};
+  --color-guardian-coral-bright: #{$guardian-coral-bright};
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #1c1636;
+}
+
+body {
+  background-color: #ffffff;
+  color: #35304c;
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+// Button styling matching itsguardian.com
+.btn-guardian-primary {
+  background-color: #7b3fc7;
+  color: #ffffff;
+  border-radius: 46px;
+  padding: 14px 28px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(123, 63, 199, 0.25);
+
+  &:hover {
+    background-color: #9565d2;
+    box-shadow: 0 6px 20px rgba(123, 63, 199, 0.35);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-guardian-coral {
+  background-color: #ff7a57;
+  color: #ffffff;
+  border-radius: 46px;
+  padding: 14px 28px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(255, 122, 87, 0.25);
+
+  &:hover {
+    background-color: #ff4312;
+    box-shadow: 0 6px 20px rgba(255, 67, 18, 0.35);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-guardian-secondary {
+  background-color: #ffffff;
+  color: #1c1636;
+  border: 1px solid #e1e1e5;
+  border-radius: 46px;
+  padding: 14px 28px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #f2ecf9;
+    border-color: #7b3fc7;
+    color: #7b3fc7;
+  }
+}

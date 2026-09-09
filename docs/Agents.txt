@@ -1,0 +1,714 @@
+# Guardian Health Service — Development Rules
+
+## 1. Project Objective
+
+Build a modern, premium, interactive Guardian Health Service website using:
+
+- React.js as the primary application framework
+- SCSS for styling
+- Framer Motion for UI and page animations
+- CSS animations and transitions where appropriate
+- Responsive, accessible, production-quality frontend architecture
+
+The experience should feel like a modern healthcare intelligence platform, not a generic SaaS template.
+
+---
+
+# 2. Technology Rules
+
+## Required
+
+- React.js
+- JavaScript / JSX
+- SCSS
+- Framer Motion
+- Modern CSS
+- Semantic HTML
+
+## Do NOT use as the primary application architecture
+
+- Next.js
+- Vue
+- Angular
+- Svelte
+- React Native
+- Tailwind CSS
+- Bootstrap
+- Material UI
+- Other UI frameworks unless explicitly requested
+
+React.js must remain the main application code.
+
+---
+
+# 3. Architecture First
+
+DO NOT start by immediately generating large amounts of UI code.
+
+Before implementation:
+
+1. Define the application architecture.
+2. Define page structure.
+3. Define section structure.
+4. Define reusable components.
+5. Define component responsibilities.
+6. Define folder structure.
+7. Define styling architecture.
+8. Define animation architecture.
+9. Define asset organization.
+10. Then begin implementation.
+
+The architecture must be clear before substantial code is written.
+
+---
+
+# 4. Folder Structure
+
+Use a clean, scalable React structure.
+
+Example:
+
+src/
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── illustrations/
+│
+├── components/
+│   ├── common/
+│   ├── layout/
+│   ├── navigation/
+│   ├── hero/
+│   ├── sections/
+│   ├── data-visualizations/
+│   └── interactions/
+│
+├── pages/
+│   └── Home/
+│
+├── animations/
+│
+├── hooks/
+│
+├── utils/
+│
+├── styles/
+│   ├── abstracts/
+│   ├── base/
+│   ├── components/
+│   ├── layout/
+│   └── main.scss
+│
+├── data/
+│
+├── App.jsx
+└── main.jsx
+
+The exact structure may be improved during architecture planning, but the final structure must remain logical and maintainable.
+
+---
+
+# 5. No Empty Files, Folders, or Pages
+
+DO NOT create:
+
+- Empty folders
+- Empty components
+- Empty pages
+- Placeholder files with no implementation
+- Components that exist only for hypothetical future use
+- Unused utilities
+- Unused hooks
+- Unused SCSS files
+
+Every created file must have a real purpose.
+
+If a feature is not implemented, do not create its folder/file merely as a placeholder.
+
+---
+
+# 6. Componentization
+
+Build reusable components.
+
+Avoid putting the entire homepage inside:
+
+App.jsx
+
+or:
+
+Home.jsx
+
+Break the interface into meaningful components.
+
+For example:
+
+- Header
+- Hero
+- DataChallenge
+- GuardianJourney
+- PlatformSection
+- PeopleTechnology
+- Solutions
+- ProviderSection
+- PayerSection
+- Impact
+- WhyGuardian
+- Resources
+- Trust
+- FinalCTA
+- Footer
+
+Components should represent meaningful UI responsibilities rather than arbitrary fragments.
+
+---
+
+# 7. 500-Line Maximum
+
+NO SINGLE CODE FILE SHOULD EXCEED 500 LINES.
+
+This applies to:
+
+- JSX
+- JavaScript
+- SCSS
+- configuration-related source files where practical
+
+If a file approaches 500 lines:
+
+STOP.
+
+Refactor it into smaller logical components/modules.
+
+Do NOT simply compress or minify code to stay under the limit.
+
+The purpose of this rule is maintainability.
+
+---
+
+# 8. ISO Code Standardization
+
+Follow consistent international coding conventions.
+
+Use:
+
+- UTF-8
+- ISO-compatible date formats where dates are required
+- ISO-style country/locale codes where applicable
+- Consistent naming conventions
+- Consistent file naming
+- Consistent component naming
+- Consistent data structures
+
+Use:
+
+YYYY-MM-DD
+
+for dates.
+
+Use:
+
+camelCase
+
+for JavaScript variables/functions.
+
+Use:
+
+PascalCase
+
+for React components.
+
+Use:
+
+kebab-case
+
+where appropriate for CSS class naming and static asset names.
+
+Do not mix naming conventions without a clear reason.
+
+---
+
+# 9. SCSS Architecture
+
+Use SCSS as the primary styling system.
+
+Avoid putting large amounts of styling directly inside JSX.
+
+Use:
+
+- Variables
+- Mixins
+- Functions when useful
+- Nesting carefully
+- Shared design tokens
+- Component-level SCSS
+- Global foundational styles
+
+Avoid excessive nesting.
+
+Avoid deeply nested selectors.
+
+Keep styles maintainable.
+
+Example:
+
+styles/
+├── abstracts/
+│   ├── _variables.scss
+│   ├── _mixins.scss
+│   └── _breakpoints.scss
+│
+├── base/
+│   ├── _reset.scss
+│   ├── _typography.scss
+│   └── _global.scss
+│
+├── layout/
+├── components/
+└── main.scss
+
+Do not create SCSS files unless they are actually used.
+
+---
+
+# 10. Animation Architecture
+
+Use Framer Motion as the primary React animation system.
+
+Use CSS animations for lightweight visual effects where appropriate.
+
+Animations must be:
+
+- Purposeful
+- Smooth
+- Responsive
+- Performance-conscious
+- Accessible
+
+Avoid excessive animation.
+
+Animation should communicate hierarchy, interaction, transition, or the Guardian data-to-action story.
+
+---
+
+# 11. Motion Principles
+
+The homepage should use motion throughout the experience.
+
+Potential motion types:
+
+- Fade
+- Slide
+- Scale
+- Reveal
+- Parallax
+- Transform
+- Stagger
+- Scroll-linked animation
+- Sticky storytelling
+- Horizontal movement
+- SVG/data animation
+- Number animation
+- Hover interaction
+- Mouse-follow interaction
+
+Do not apply the same animation to every section.
+
+Each section should have an appropriate motion treatment.
+
+---
+
+# 12. Hero Interaction
+
+The hero is a primary visual showcase.
+
+Implement:
+
+- CSS-based ambient effects
+- Mouse movement interaction
+- Layered parallax
+- Floating data elements
+- Subtle UI movement
+- Responsive behavior
+- Framer Motion entrance animations
+
+Mouse interaction must remain subtle.
+
+The entire page must NOT move aggressively with the cursor.
+
+Use layered depth:
+
+Background → Data → UI → Foreground.
+
+Respect reduced-motion preferences.
+
+---
+
+# 13. Interactive Data Story
+
+The homepage should communicate:
+
+CONNECT
+↓
+UNDERSTAND
+↓
+IDENTIFY
+↓
+ACT
+↓
+OUTCOME
+
+This should not simply be five static cards.
+
+Where appropriate, use:
+
+- Scroll-driven transitions
+- Data movement
+- Connecting lines
+- Progressive reveals
+- UI transformation
+- Interactive visualizations
+
+The animation should communicate the meaning of each stage.
+
+---
+
+# 14. Visual Design Principles
+
+The website should feel:
+
+- Premium
+- Modern
+- Human
+- Healthcare-focused
+- Technology-driven
+- Intelligent
+- Editorial
+- Interactive
+- Sophisticated
+
+Use:
+
+- Large typography
+- Strong visual hierarchy
+- Generous whitespace
+- Asymmetric layouts
+- Layered compositions
+- Real healthcare imagery
+- Product UI
+- Data visualization
+- Rich infographics
+- Subtle depth
+- Glassmorphism where appropriate
+
+---
+
+# 15. Glassmorphism
+
+Glassmorphism may be used as a supporting visual language.
+
+Good uses:
+
+- Floating UI panels
+- Patient information panels
+- Data cards
+- Navigation overlays
+- Dashboard layers
+- Interactive controls
+- Small metric panels
+
+Do NOT make the entire website glassmorphic.
+
+Avoid excessive blur, transparency, borders, and glowing surfaces.
+
+Glass should support the interface rather than become the interface.
+
+---
+
+# 16. Images
+
+Do not create a homepage consisting only of text and UI cards.
+
+Use a mixture of:
+
+### Human imagery
+
+- Doctors
+- Care teams
+- Care managers
+- Care navigators
+- Patients
+- Healthcare working environments
+
+### Product imagery
+
+- Patient views
+- Healthcare dashboards
+- Risk information
+- Care gaps
+- Quality information
+- Care workflows
+- Analytics
+
+### Conceptual visuals
+
+- Healthcare data networks
+- Patient intelligence
+- Connected systems
+- Data transformation
+- Care journeys
+
+Avoid generic healthcare stock-photo clichés.
+
+Images should contribute to the story.
+
+---
+
+# 17. Infographics
+
+Use rich infographics wherever they communicate information better than text.
+
+Examples:
+
+Healthcare systems
+→ Guardian
+→ Patient Intelligence
+→ Opportunity
+→ Action
+→ Outcome
+
+Infographics should be:
+
+- Interactive where useful
+- Animated where useful
+- Visually understandable
+- Consistent with Guardian branding
+- Responsive
+
+Do not use decorative charts that communicate nothing.
+
+---
+
+# 18. Responsiveness
+
+The website must be responsive from the beginning.
+
+Design for:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Do not build desktop first and "fix mobile later."
+
+Animations must also adapt to screen size.
+
+Mouse-based effects must gracefully disappear or change behavior on touch devices.
+
+---
+
+# 19. Accessibility
+
+Follow accessible web practices.
+
+Include:
+
+- Semantic HTML
+- Keyboard navigation
+- Visible focus states
+- Appropriate contrast
+- Alt text for meaningful images
+- ARIA only when necessary
+- Reduced-motion support
+- Accessible interactive elements
+
+Do not rely on animation alone to communicate important information.
+
+---
+
+# 20. Performance
+
+Visual richness must not come at the expense of performance.
+
+Optimize:
+
+- Images
+- SVGs
+- Animation complexity
+- Component rendering
+- Event listeners
+- Scroll handlers
+- Mouse movement handlers
+
+Prefer:
+
+requestAnimationFrame
+
+for high-frequency pointer/visual interactions when required.
+
+Avoid unnecessary re-renders.
+
+Use lazy loading for appropriate assets.
+
+---
+
+# 21. Content Rule
+
+Use the approved Guardian Homepage Content V1 as the content source.
+
+Do NOT invent major claims, statistics, certifications, customer results, or healthcare capabilities.
+
+Do NOT add random marketing copy simply to fill space.
+
+The visual experience can be innovative while the content remains controlled.
+
+---
+
+# 22. Brand Rule
+
+Use the existing Guardian Health Service website as the primary brand/color reference:
+
+https://itsguardian.com/
+
+Do not create an unrelated visual identity.
+
+Modernize the presentation while maintaining recognizable Guardian branding.
+
+---
+
+# 23. Do Not Build Generic SaaS
+
+Avoid:
+
+- Generic SaaS templates
+- Repetitive 3-card layouts
+- Bootstrap-like layouts
+- Excessive rounded rectangles
+- Random gradient blobs
+- Generic AI visualizations
+- Excessive floating circles
+- Generic dashboard mockups
+- Stock-photo hero clichés
+- Animation without purpose
+
+Guardian should feel like a healthcare intelligence company with its own visual language.
+
+---
+
+# 24. Development Sequence
+
+Follow this order:
+
+PHASE 1 — ARCHITECTURE
+→ Define pages
+→ Define sections
+→ Define components
+→ Define folder structure
+→ Define data structure
+→ Define animation architecture
+
+PHASE 2 — DESIGN SYSTEM
+→ Existing Guardian colors
+→ Typography
+→ Spacing
+→ Radius
+→ Shadows
+→ Glass surfaces
+→ UI tokens
+→ Motion tokens
+
+PHASE 3 — CORE UI
+→ Header
+→ Hero
+→ Global layout
+→ Buttons
+→ Typography
+→ Shared components
+
+PHASE 4 — HOMEPAGE
+→ Hero
+→ Data challenge
+→ Connect
+→ Understand
+→ Identify
+→ Act
+→ Outcome
+→ Platform
+→ People + Technology
+→ Solutions
+→ Providers
+→ Payers
+→ Impact
+→ Why Guardian
+→ Resources
+→ Trust
+→ Final CTA
+→ Footer
+
+PHASE 5 — INTERACTION
+→ Mouse effects
+→ Scroll animations
+→ Framer Motion
+→ Infographics
+→ Hover states
+→ Interactive sections
+
+PHASE 6 — RESPONSIVE
+→ Tablet
+→ Mobile
+→ Touch interaction
+→ Mobile animation adjustments
+
+PHASE 7 — QUALITY
+→ Accessibility
+→ Performance
+→ Code cleanup
+→ Component review
+→ Remove unused code
+→ Verify no file exceeds 500 lines
+
+---
+
+# 25. Before Writing Code
+
+Before generating substantial implementation code, provide:
+
+1. Proposed folder structure
+2. Page structure
+3. Component architecture
+4. Animation architecture
+5. SCSS architecture
+6. Data/content structure
+7. Dependency list
+8. Implementation sequence
+
+Wait for architecture validation before proceeding with large-scale implementation.
+
+---
+
+# 26. Final Quality Standard
+
+The final result should feel like:
+
+A premium healthcare intelligence experience.
+
+Not:
+
+A redesigned WordPress website.
+
+Not:
+
+A generic React landing page.
+
+Not:
+
+An animation showcase.
+
+Technology, design, content, imagery, infographics, and motion must work together to communicate:
+
+CONNECT
+→ UNDERSTAND
+→ IDENTIFY
+→ ACT
+→ OUTCOME
