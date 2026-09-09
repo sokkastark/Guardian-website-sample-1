@@ -41,12 +41,12 @@ export default function Hero() {
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
-          LAYER 1: Main Character (Clinician Cutout) (Midplane Anchor)
-          Positioned between the data pills and the holographic cards,
-          looking directly towards the holographic visuals on the right!
+          LAYER 2: Main Character (Clinician Cutout) (Midplane Anchor)
+          Positioned in FRONT of the left data pills (Layer 3)
+          and BEHIND the holographic cards (Layer 1).
           STAYS ANCHORED STILL per user request, with face 100% visible.
           ───────────────────────────────────────────────────────────── */}
-      <div className="absolute bottom-0 left-[33%] sm:left-[35%] lg:left-[37%] xl:left-[39%] pointer-events-none z-20 hidden lg:block">
+      <div className="absolute bottom-0 left-[30%] sm:left-[32%] lg:left-[34%] xl:left-[36%] pointer-events-none z-20 hidden lg:block">
         <div
           className="relative will-change-transform"
           style={{
@@ -64,20 +64,20 @@ export default function Hero() {
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
-          LAYER 2 & 3: Content Grid
-          Left: Narrative Text (STAYS STILL)
-          Center-Left: 5 Data Stream Pills (Gentle Parallax)
-          Right: Holographic Cards (Forward Parallax + 3D Tilt)
+          CONTENT GRID:
+          - Left Column: Narrative Text (z-30)
+          - Center-Left Column: 5 Data Stream Pills (Layer 3: z-10, behind doctor)
+          - Right Column: Holographic Glass HUD Cards (Layer 1: z-30, in front of doctor)
           ───────────────────────────────────────────────────────────── */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-30">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Typography & Narrative CTAs (STAYS STILL) */}
+          {/* Left Column: Typography & Narrative CTAs (STAYS STILL, z-30) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 xl:col-span-4 flex flex-col items-start pt-4 lg:pt-0"
+            className="lg:col-span-4 xl:col-span-4 flex flex-col items-start pt-4 lg:pt-0 relative z-30"
             style={{
               transform: 'translate3d(0px, 0px, 0px)',
             }}
@@ -141,13 +141,13 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Center-Left Column: 5 Data Stream Holographic Pills (Between Text and Doctor) */}
-          <div className="lg:col-span-3 xl:col-span-3 hidden sm:flex items-center justify-start lg:pl-2">
+          {/* LAYER 3: Center-Left Column: 5 Data Stream Holographic Pills (BEHIND DOCTOR, z-10) */}
+          <div className="lg:col-span-3 xl:col-span-3 hidden sm:flex items-center justify-start lg:pl-2 relative z-10">
             <HeroDataPills mouseX={mouseX} mouseY={mouseY} />
           </div>
 
-          {/* Right Column: Holographic Glass HUD Cards (Where the doctor is looking!) */}
-          <div className="lg:col-span-5 xl:col-span-5 relative w-full flex items-center justify-end">
+          {/* LAYER 1: Right Column: Holographic Glass HUD Cards (IN FRONT OF DOCTOR, z-30, aligned with doctor's gaze & tablet) */}
+          <div className="lg:col-span-5 xl:col-span-5 relative w-full flex items-center justify-end z-30 pt-8 sm:pt-12 lg:pt-16 xl:pt-20">
             <HeroVisualCards mouseX={mouseX} mouseY={mouseY} />
           </div>
 
