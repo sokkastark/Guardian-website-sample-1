@@ -43,6 +43,7 @@ export default function InformationServicesPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What the Guardian Platform provides for healthcare information delivery"
       heroVisualBadge="Workflow Intelligence Delivery"
+      contextType="patient-intelligence"
       siblings={siblings}
       closingHeadline="Information is valuable when it reaches the right people."
       closingText="Guardian connects healthcare information with the workflows and people that need it, helping turn information into informed action."

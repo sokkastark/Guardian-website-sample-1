@@ -43,6 +43,7 @@ export default function DataEnrichmentPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What the Guardian Platform provides for healthcare data enrichment"
       heroVisualBadge="Clinical Contextualization"
+      contextType="data-integration"
       siblings={siblings}
       closingHeadline="Make healthcare data more meaningful."
       closingText="Connected data becomes more useful when the right context is available to understand what it means and what can happen next."

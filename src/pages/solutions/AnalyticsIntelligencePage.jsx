@@ -43,6 +43,7 @@ export default function AnalyticsIntelligencePage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare organizations achieve through connected intelligence"
       heroVisualBadge="Operational & Clinical Decisioning"
+      contextType="population-health"
       siblings={siblings}
       closingHeadline="Turn healthcare data into actionable intelligence."
       closingText="Guardian connects analytics with healthcare workflows and expertise so information can move from a report or dashboard into a meaningful decision."

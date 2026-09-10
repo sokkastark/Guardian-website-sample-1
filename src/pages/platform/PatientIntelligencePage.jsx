@@ -43,6 +43,7 @@ export default function PatientIntelligencePage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What the Guardian Platform delivers for longitudinal patient intelligence"
       heroVisualBadge="Patient Master Chart Core"
+      contextType="patient-intelligence"
       siblings={siblings}
       closingHeadline="One patient. One connected view."
       closingText="Guardian brings information together to help healthcare teams understand the patient beyond individual encounters and take more informed action."

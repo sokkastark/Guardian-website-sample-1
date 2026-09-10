@@ -43,6 +43,7 @@ export default function PatientEngagementPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare teams achieve in patient engagement"
       heroVisualBadge="Care-Plan & Workflow Alignment"
+      contextType="care-management"
       siblings={siblings}
       closingHeadline="Turn patient information into meaningful action."
       closingText="Patient engagement becomes more effective when the right information reaches the right people at the right point in the care journey."

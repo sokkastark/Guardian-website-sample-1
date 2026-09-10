@@ -44,6 +44,7 @@ export default function ProvidersPage() {
       supportingHeadline="Built around the work of care teams."
       supportingText="Guardian brings technology, healthcare data, and healthcare expertise together to support the people responsible for delivering and coordinating care."
       heroVisualBadge="Care-Team Clinical Intelligence"
+      contextType="providers"
       siblings={siblings}
       closingHeadline="Give your teams the context to act."
       closingText="Connect the patient picture, identify the opportunity, and support the next step in care."

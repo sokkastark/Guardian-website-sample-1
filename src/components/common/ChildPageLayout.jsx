@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   ArrowUpRight
 } from 'lucide-react';
+import InteractiveWorkflowPipeline from '../workflow/InteractiveWorkflowPipeline';
 
 export default function ChildPageLayout({
   category,
@@ -31,7 +32,8 @@ export default function ChildPageLayout({
   siblings = [],
   closingHeadline,
   closingText,
-  heroVisualBadge
+  heroVisualBadge,
+  contextType = 'default'
 }) {
   return (
     <div className="min-h-screen bg-[#faf9fc] text-[#35304c] overflow-hidden">
@@ -147,12 +149,12 @@ export default function ChildPageLayout({
         </div>
       </section>
 
-      {/* 2. CORE JOURNEY / PROGRESSION SECTION */}
+      {/* 2. CORE JOURNEY / INTERACTIVE WORKFLOW PIPELINE */}
       {journey.length > 0 && (
         <section className="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-[#7b3fc7] bg-[#f2ecf9] px-3.5 py-1.5 rounded-full border border-[#d6cde2]">
-              Structured Progression
+              Interactive Workflow Pipeline
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#1c1636] mt-4 mb-3 tracking-tight">
               {journeyTitle}
@@ -162,33 +164,12 @@ export default function ChildPageLayout({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {journey.map((step, idx) => (
-              <motion.div
-                key={step.step || step.title || idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-[#e1e1e5] hover:border-[#7b3fc7]/50 shadow-sm hover:shadow-xl hover:shadow-[#7b3fc7]/5 transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="w-8 h-8 rounded-full bg-[#f2ecf9] text-[#7b3fc7] font-bold text-xs flex items-center justify-center font-mono">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-[11px] font-semibold text-[#adabb7] tracking-wider uppercase">
-                    Step {idx + 1}
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-[#1c1636] mb-2 group-hover:text-[#7b3fc7] transition-colors">
-                  {step.step || step.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#727272] leading-relaxed">
-                  {step.description || step.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <InteractiveWorkflowPipeline
+            steps={journey}
+            contextType={contextType}
+            category={category}
+            title={title}
+          />
         </section>
       )}
 

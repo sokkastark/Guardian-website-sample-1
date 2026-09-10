@@ -44,6 +44,7 @@ export default function AccountExecutivesPage() {
       supportingHeadline="Technology works better with the right support around it."
       supportingText="Guardian combines technology with people who understand the healthcare environment and help organizations navigate their priorities."
       heroVisualBadge="Dedicated Account Leadership"
+      contextType="services"
       siblings={siblings}
       closingHeadline="Technology backed by people."
       closingText="Work with a Guardian team that stays connected to your goals and helps move priorities forward."

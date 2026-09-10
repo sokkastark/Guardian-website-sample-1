@@ -45,6 +45,7 @@ export default function CareManagersPage() {
       supportingHeadline="Technology provides the context. People help move care forward."
       supportingText="Guardian Care Managers work alongside technology to help connect information with the human work of coordinating care."
       heroVisualBadge="Dedicated Care Coordination"
+      contextType="care-management"
       siblings={siblings}
       closingHeadline="Connect insight with care."
       closingText="Give care teams the context and support needed to move from identified opportunity to coordinated action."

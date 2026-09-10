@@ -44,6 +44,7 @@ export default function PayersPage() {
       supportingHeadline="See the network through a connected lens."
       supportingText="Guardian brings together data, intelligence, technology, and healthcare expertise to help payer organizations understand what is happening across their populations and networks."
       heroVisualBadge="Network & Population Oversight"
+      contextType="payers"
       siblings={siblings}
       closingHeadline="Turn network intelligence into action."
       closingText="Connect the data. Understand performance. Identify the opportunity. Support the action."

@@ -42,6 +42,7 @@ export default function PopulationHealthPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare organizations achieve across populations"
       heroVisualBadge="Population-Scale Clinical Intelligence"
+      contextType="population-health"
       siblings={siblings}
       closingHeadline="Turn population data into focused action."
       closingText="Connect the population picture. Identify the opportunities. Give your teams the context to act."

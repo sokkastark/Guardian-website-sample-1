@@ -43,6 +43,7 @@ export default function RiskAdjustmentPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare teams achieve in risk adjustment"
       heroVisualBadge="HCC Gap & Documentation Context"
+      contextType="risk-adjustment"
       siblings={siblings}
       closingHeadline="Turn risk data into informed action."
       closingText="Connected data and healthcare expertise help teams focus attention where it matters."

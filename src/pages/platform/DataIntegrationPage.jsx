@@ -43,6 +43,7 @@ export default function DataIntegrationPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What the Guardian Platform delivers for healthcare data integration"
       heroVisualBadge="Multi-Source Data Ingestion"
+      contextType="data-integration"
       siblings={siblings}
       closingHeadline="Create a connected foundation for healthcare intelligence."
       closingText="Bring healthcare information together so organizations can move from fragmented data toward a clearer view of the patient and population."

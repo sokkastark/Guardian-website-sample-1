@@ -45,6 +45,7 @@ export default function CareNavigatorsPage() {
       supportingHeadline="Better connected care starts with the patient."
       supportingText="Care Navigators add a human connection to healthcare workflows, helping patients move through the next step of their care."
       heroVisualBadge="Patient Outreach & Navigation"
+      contextType="services"
       siblings={siblings}
       closingHeadline="Help patients move forward."
       closingText="Connect patient information, outreach, and coordination to support the care journey."

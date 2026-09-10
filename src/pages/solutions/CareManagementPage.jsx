@@ -43,6 +43,7 @@ export default function CareManagementPage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps care teams achieve across patient workflows"
       heroVisualBadge="Patient Master Chart Integration"
+      contextType="care-management"
       siblings={siblings}
       closingHeadline="Make every care decision more informed."
       closingText="Guardian brings patient information, clinical context, care opportunities, and workflows together to support coordinated care."

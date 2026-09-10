@@ -45,6 +45,7 @@ export default function RiskCodersPage() {
       supportingHeadline="Healthcare expertise connected to patient data."
       supportingText="Guardian combines connected healthcare information with specialized expertise to support risk-adjustment work."
       heroVisualBadge="Certified Risk Coding Specialists"
+      contextType="risk-adjustment"
       siblings={siblings}
       closingHeadline="Make risk opportunities easier to act on."
       closingText="Give coding teams the information and context they need to support the workflow."

@@ -43,6 +43,7 @@ export default function QualityPerformancePage() {
       capabilitiesTitle="Key Capabilities"
       capabilitiesSubtitle="What Guardian helps healthcare organizations achieve in quality performance"
       heroVisualBadge="Continuous Performance Monitoring"
+      contextType="quality-performance"
       siblings={siblings}
       closingHeadline="Turn quality insights into action."
       closingText="Guardian helps connect performance information with the patient and workflow context needed to take action."
