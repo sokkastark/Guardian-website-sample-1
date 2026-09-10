@@ -14,7 +14,16 @@ export default function Footer() {
         {/* Brand & Location Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 mb-10 border-b border-[#e1e1e5]/60 gap-4">
           <div className="space-y-1.5">
-            <Link to="/" className="inline-block" aria-label="Guardian Health Service Home">
+            <Link
+              to="/"
+              onClick={() => {
+                if (window.location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="inline-block"
+              aria-label="Guardian Health Service Home"
+            >
               <img
                 src="/logos/Logo.webp"
                 alt="Guardian Health Service"

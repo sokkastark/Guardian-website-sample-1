@@ -43,7 +43,12 @@ export default function Header() {
           {/* Official Guardian Brand Logo -> Links to / */}
           <Link
             to="/"
-            onClick={closeMobileMenu}
+            onClick={() => {
+              closeMobileMenu();
+              if (location.pathname === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7b3fc7] rounded-lg p-1"
             aria-label="Guardian Health Service Homepage"
           >
