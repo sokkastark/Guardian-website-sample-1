@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUp, ArrowRight, Sparkles, Mail, MapPin, ShieldCheck, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUp, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -8,79 +8,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-white via-[#f8f6fc] to-[#f2ecf9]/50 pt-16 sm:pt-20 pb-12 border-t border-[#e1e1e5] text-[#35304c] text-xs">
+    <footer className="relative bg-gradient-to-b from-white via-[#f8f6fc] to-[#f2ecf9]/50 pt-12 pb-12 border-t border-[#e1e1e5] text-[#35304c] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Elevated Executive Conversion Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.65, ease: 'easeOut' }}
-          className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#1c1636] via-[#2d1b54] to-[#7b3fc7] p-8 sm:p-14 lg:p-16 text-center text-white shadow-2xl shadow-[#7b3fc7]/20 border border-white/10 mb-16 sm:mb-20"
-        >
-          
-          {/* Subtle Ambient Radial Lighting within Card */}
-          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#ff7a57]/20 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#7b3fc7]/40 blur-3xl pointer-events-none" />
-          <div className="absolute inset-0 ambient-grid opacity-15 pointer-events-none" />
-
-          <div className="relative z-10 max-w-4xl mx-auto">
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-medium mb-6 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#ff7a57]" />
-              <span>Partner With Guardian</span>
-            </div>
-
-            {/* Headline in pure, high-contrast white */}
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">
-              Drive value and savings with our compassionate tech solutions and services
-            </h2>
-
-            {/* Subheading */}
-            <p className="text-purple-100/90 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
-              Empowering healthcare organizations to connect data, clinical intelligence, and operational expertise into meaningful action.
-            </p>
-
-            {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <a
-                href="mailto:support@itsguardian.com"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full font-medium text-sm text-[#1c1636] bg-white hover:bg-[#f2ecf9] shadow-lg shadow-black/15 transition-all duration-300 hover:scale-105 active:scale-95"
-              >
-                <span>Contact us</span>
-                <ArrowRight className="w-4 h-4 text-[#7b3fc7]" />
-              </a>
-
-              <a
-                href="#platform"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium text-sm text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-300"
-              >
-                <span>Explore Platform</span>
-              </a>
-            </div>
-
-            {/* Direct Contact & Location Ribbon */}
-            <div className="pt-6 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 text-xs text-purple-200/80">
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#ff7a57]" />
-                <span className="text-white font-medium">support@itsguardian.com</span>
-              </div>
-              <span className="hidden sm:inline text-white/30">•</span>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-purple-300" />
-                <span className="text-purple-100">Winter Park, Florida</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Clean Footer Navigation Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
-          
-          {/* Brand Col */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-2">
+        {/* Brand & Location Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 mb-10 border-b border-[#e1e1e5]/60 gap-4">
+          <div className="space-y-1.5">
+            <Link to="/" className="inline-block" aria-label="Guardian Health Service Home">
               <img
                 src="/logos/Logo.webp"
                 alt="Guardian Health Service"
@@ -89,76 +23,166 @@ export default function Footer() {
                   e.currentTarget.src = '/logos/logo-black.webp';
                 }}
               />
-            </div>
-
-            <p className="text-[#1c1636] font-semibold text-sm">
+            </Link>
+            <p className="text-xs text-[#727272] font-normal">
               Technology enabled, integrated care.
             </p>
-            <p className="text-[#727272] text-xs leading-relaxed max-w-sm">
-              Guardian connects clinical intelligence, technology, and operational healthcare expertise to empower organizations in value-based care.
-            </p>
+          </div>
 
-            <div className="pt-2 text-xs text-[#adabb7]">
-              <span>Headquarters: Winter Park, Florida</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-[#727272]">
+            <a
+              href="mailto:support@itsguardian.com"
+              className="inline-flex items-center gap-1.5 hover:text-[#7b3fc7] transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#ff7a57]" />
+              <span className="font-medium text-[#1c1636]">support@itsguardian.com</span>
+            </a>
+            <span className="text-[#adabb7]">•</span>
+            <div className="inline-flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#7b3fc7]" />
+              <span>Winter Park, Florida</span>
             </div>
-          </div>
-
-          {/* Nav Col 1: Technology */}
-          <div className="lg:col-span-3 space-y-3">
-            <h5 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] block">
-              Technology
-            </h5>
-            <ul className="space-y-2.5 text-sm">
-              <li><a href="#platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Patient Master Chart</a></li>
-              <li><a href="#platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Data Integration</a></li>
-              <li><a href="#platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Information Services</a></li>
-              <li><a href="#platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Data Enrichment</a></li>
-              <li><a href="#solutions" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Population Health</a></li>
-            </ul>
-          </div>
-
-          {/* Nav Col 2: Services */}
-          <div className="lg:col-span-3 space-y-3">
-            <h5 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] block">
-              Services
-            </h5>
-            <ul className="space-y-2.5 text-sm">
-              <li><a href="#people-tech" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Account Executives</a></li>
-              <li><a href="#people-tech" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Risk Coders</a></li>
-              <li><a href="#people-tech" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Care Managers</a></li>
-              <li><a href="#people-tech" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">Care Navigators</a></li>
-              <li><a href="#journey" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">The Guardian Journey</a></li>
-            </ul>
-          </div>
-
-          {/* Nav Col 3: Compliance & Contact */}
-          <div className="lg:col-span-2 space-y-3">
-            <h5 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] block">
-              Connect
-            </h5>
-            <ul className="space-y-2.5 text-sm">
-              <li><a href="mailto:support@itsguardian.com" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">support@itsguardian.com</a></li>
-              <li><a href="#trust" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">CMS MIPS Registry</a></li>
-              <li><a href="#trust" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">HITRUST Certified</a></li>
-              <li><a href="#trust" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors">CareQuality</a></li>
-            </ul>
-          </div>
-
-        </div>
-
-        {/* Bottom Strip */}
-        <div className="pt-8 border-t border-[#e1e1e5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#727272]">
-          <p>© {new Date().getFullYear()} Guardian Health Service, LLC. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <span>HIPAA Compliant</span>
-            <span>SOC 2 Type II</span>
+            <span className="text-[#adabb7]">•</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#7b3fc7] hover:text-[#9565d2] transition-colors focus:outline-none font-medium cursor-pointer"
+              className="inline-flex items-center gap-1 text-[#7b3fc7] hover:text-[#9565d2] transition-colors focus:outline-none font-medium cursor-pointer"
+              aria-label="Back to top"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
+          </div>
+        </div>
+
+        {/* Four Balanced Secondary Navigation Columns */}
+        <nav aria-label="Footer Secondary Navigation" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14">
+          
+          {/* 01 — EXPLORE */}
+          <div className="space-y-3.5">
+            <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <span className="text-[#7b3fc7] font-mono text-[10px]">01 —</span>
+              <span>EXPLORE</span>
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/solutions" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link to="/platform" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Platform
+                </Link>
+              </li>
+              <li>
+                <Link to="/who-we-serve" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Who We Serve
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Services
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 02 — COMPANY */}
+          <div className="space-y-3.5">
+            <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <span className="text-[#7b3fc7] font-mono text-[10px]">02 —</span>
+              <span>COMPANY</span>
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/why-guardian" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Why Guardian
+                </Link>
+              </li>
+              <li>
+                <Link to="/why-guardian/about" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  About Guardian
+                </Link>
+              </li>
+              <li>
+                <Link to="/why-guardian/our-story" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Our Story
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 03 — RESOURCES */}
+          <div className="space-y-3.5">
+            <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <span className="text-[#7b3fc7] font-mono text-[10px]">03 —</span>
+              <span>RESOURCES</span>
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/resources" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources/insights" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Insights
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources/case-studies" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources/guides" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Guides
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 04 — CONNECT */}
+          <div className="space-y-3.5">
+            <h3 className="text-[#adabb7] font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <span className="text-[#7b3fc7] font-mono text-[10px]">04 —</span>
+              <span>CONNECT</span>
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/contact" className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium block py-0.5">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://live.itsguardian.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1c1636] hover:text-[#7b3fc7] transition-colors font-medium inline-flex items-center gap-1.5 py-0.5"
+                >
+                  <span>Client Portal Login</span>
+                  <span className="text-xs font-light">↗</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+
+        {/* Bottom Legal / Footer Bar */}
+        <div className="pt-8 border-t border-[#e1e1e5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#727272]">
+          <p className="font-normal">
+            © Guardian Health Service, LLC
+          </p>
+          <div className="flex items-center gap-3">
+            <Link to="/privacy-policy" className="hover:text-[#7b3fc7] transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-[#d6cde2]">|</span>
+            <Link to="/careers" className="hover:text-[#7b3fc7] transition-colors">
+              Careers
+            </Link>
           </div>
         </div>
 

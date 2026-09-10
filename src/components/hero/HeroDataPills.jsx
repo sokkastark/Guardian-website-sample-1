@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Database, FileSpreadsheet, Activity, Radio, Network } from 'lucide-react';
 
-export default function HeroDataPills({ mouseX = 0, mouseY = 0 }) {
+export default function HeroDataPills({ mouseX = 0, mouseY = 0, maxItems = null }) {
   const pills = [
     {
       id: 'ehr',
@@ -51,6 +51,8 @@ export default function HeroDataPills({ mouseX = 0, mouseY = 0 }) {
     },
   ];
 
+  const displayPills = maxItems ? pills.slice(0, maxItems) : pills;
+
   return (
     <div
       className="relative pointer-events-auto select-none"
@@ -66,7 +68,7 @@ export default function HeroDataPills({ mouseX = 0, mouseY = 0 }) {
           transformStyle: 'preserve-3d',
         }}
       >
-        {pills.map((pill, idx) => {
+        {displayPills.map((pill, idx) => {
           const Icon = pill.icon;
           return (
             <motion.div

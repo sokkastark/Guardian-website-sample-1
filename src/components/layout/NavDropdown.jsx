@@ -1,0 +1,117 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+import { isParentActive, isChildActive } from '../../config/navigation';
+
+export default function NavDropdown({ item, isScrolled, currentPath }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const parentActive = isParentActive(currentPath, item);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={dropdownRef}
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onKeyDown={handleKeyDown}
+    >
+      {/* Top-Level Clickable Item */}
+      <Link
+        to={item.path}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        className={`group inline-flex items-center gap-1 px-3.5 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7b3fc7] ${
+          parentActive
+            ? isScrolled
+              ? 'bg-white text-[#7b3fc7] shadow-xs font-semibold'
+              : 'bg-white/25 text-white shadow-xs font-semibold'
+            : isScrolled
+            ? 'text-[#35304c] hover:text-[#7b3fc7] hover:bg-white'
+            : 'text-white/90 hover:text-white hover:bg-white/15'
+        }`}
+      >
+        <span>{item.label}</span>
+        {item.children && (
+          <ChevronDown
+            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
+            } ${
+              parentActive
+                ? isScrolled ? 'text-[#7b3fc7]' : 'text-white'
+                : isScrolled ? 'text-[#adabb7] group-hover:text-[#7b3fc7]' : 'text-white/60 group-hover:text-white'
+            }`}
+          />
+        )}
+      </Link>
+
+      {/* Floating Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && item.children && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.98 }}
+            transition={{ duration: 0.16, ease: 'easeOut' }}
+            className="absolute top-full left-0 mt-2 w-64 rounded-2xl bg-white/95 backdrop-blur-xl border border-[#e1e1e5] shadow-xl shadow-[#1c1636]/10 p-2 z-50 overflow-hidden"
+          >
+            <div className="flex flex-col gap-0.5">
+              {item.children.map((child) => {
+                const childActive = isChildActive(currentPath, child.path);
+                const isOverview = child.path === item.path;
+
+                return (
+                  <Link
+                    key={child.path + child.label}
+                    to={child.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center justify-between px-3.5 py-2 rounded-xl text-xs xl:text-sm font-medium transition-all ${
+                      childActive
+                        ? 'bg-[#f2ecf9] text-[#7b3fc7] font-semibold'
+                        : isOverview
+                        ? 'text-[#1c1636] hover:bg-[#f8f6fc] hover:text-[#7b3fc7] font-medium border-b border-[#e1e1e5]/60 mb-1 pb-2.5'
+                        : 'text-[#35304c] hover:bg-[#f8f6fc] hover:text-[#7b3fc7]'
+                    }`}
+                  >
+                    <span>{child.label}</span>
+                    {isOverview && (
+                      <span className="text-[10px] uppercase font-mono tracking-wider text-[#adabb7] bg-white px-1.5 py-0.5 rounded border border-[#e1e1e5]">
+                        Landing
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
