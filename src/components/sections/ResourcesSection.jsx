@@ -31,22 +31,22 @@ export default function ResourcesSection() {
   ];
 
   return (
-    <section id="resources" className="relative py-24 lg:py-32 bg-[#ede6f6] overflow-hidden border-t border-[#d6cde2]">
+    <section id="resources" className="relative py-16 sm:py-20 bg-[#f8f6fc] overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/14 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-[600px] h-[400px] bg-[#ff7a57]/10 blur-[140px] rounded-full" />
+        <div className="absolute top-1/2 left-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/8 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 right-1/4 w-[600px] h-[400px] bg-[#ff7a57]/8 blur-[140px] rounded-full" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14 lg:mb-16"
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-12"
         >
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
@@ -74,11 +74,11 @@ export default function ResourcesSection() {
           {resources.map((item, idx) => (
             <motion.article
               key={item.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.6, delay: idx * 0.14, ease: 'easeOut' }}
-              className="bg-white rounded-3xl border border-[#d6cde2] shadow-[0_8px_28px_rgba(28,22,54,0.06)] hover:border-[#7b3fc7] hover:shadow-[0_20px_48px_rgba(123,63,199,0.14)] transition-all duration-300 group flex flex-col justify-between overflow-hidden"
+              transition={{ duration: 0.6, delay: idx * 0.12, ease: 'easeOut' }}
+              className="bg-white rounded-3xl border border-[#e1e1e5] shadow-[0_8px_28px_rgba(28,22,54,0.04)] hover:border-[#7b3fc7] hover:shadow-[0_20px_48px_rgba(123,63,199,0.12)] transition-all duration-300 group flex flex-col justify-between overflow-hidden"
             >
               <div>
                 {/* Image Header Preview */}

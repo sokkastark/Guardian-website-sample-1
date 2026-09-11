@@ -52,10 +52,10 @@ export default function WhyGuardian() {
   ];
 
   return (
-    <section id="why-guardian" className="relative py-24 lg:py-32 bg-[#ede6f6] overflow-hidden border-t border-[#d6cde2]">
+    <section id="why-guardian" className="relative py-16 sm:py-20 bg-gradient-to-b from-[#f8f6fc] via-[#f3eef9]/50 to-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[700px] h-[550px] bg-[#7b3fc7]/14 blur-[160px] rounded-full" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[700px] h-[550px] bg-[#7b3fc7]/10 blur-[160px] rounded-full" />
         <div className="absolute bottom-10 left-1/4 w-[600px] h-[400px] bg-[#ff7a57]/10 blur-[140px] rounded-full" />
       </div>
 
@@ -63,18 +63,18 @@ export default function WhyGuardian() {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-14 lg:mb-16"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#7b3fc7]" />
             <span>Why Guardian</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
             Built from healthcare.{' '}
             <span className="text-gradient-hero block sm:inline">Designed for action.</span>
           </h2>
@@ -90,11 +90,11 @@ export default function WhyGuardian() {
           
           {/* Left Column: Human Storytelling Editorial Visual Anchor (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 36 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#d6cde2] shadow-[0_16px_48px_rgba(28,22,54,0.10)] flex flex-col justify-end min-h-[460px] lg:min-h-[580px]"
+            className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#e1e1e5] shadow-[0_16px_48px_rgba(28,22,54,0.06)] flex flex-col justify-end min-h-[460px] lg:min-h-[580px]"
           >
             <img
               src="/images/healthcare-expert.webp"
@@ -127,11 +127,11 @@ export default function WhyGuardian() {
               return (
                 <motion.div
                   key={theme.title}
-                  initial={{ opacity: 0, y: 36 }}
+                  initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.55, delay: idx * 0.09, ease: 'easeOut' }}
-                  className="p-5 rounded-2xl bg-white border border-[#d6cde2] hover:border-[#7b3fc7] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_16px_rgba(28,22,54,0.05)] hover:shadow-[0_12px_28px_rgba(123,63,199,0.12)]"
+                  className="p-5 rounded-2xl bg-white border border-[#e1e1e5] hover:border-[#7b3fc7] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_16px_rgba(28,22,54,0.04)] hover:shadow-[0_12px_28px_rgba(123,63,199,0.1)]"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">

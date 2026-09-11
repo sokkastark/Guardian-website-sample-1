@@ -128,29 +128,29 @@ export default function PlatformSection() {
   ];
 
   return (
-    <section id="platform" className="relative py-24 lg:py-32 bg-[#eae4f4] overflow-hidden border-t border-[#d6cde2]">
+    <section id="platform" className="relative py-16 sm:py-20 bg-gradient-to-b from-[#f8f6fc] via-[#f3eef9]/50 to-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/14 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 left-1/4 w-[650px] h-[450px] bg-[#ff7a57]/12 blur-[150px] rounded-full" />
+        <div className="absolute top-1/4 right-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/10 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 left-1/4 w-[650px] h-[450px] bg-[#ff7a57]/10 blur-[150px] rounded-full" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-14 lg:mb-16"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <Layers className="w-3.5 h-3.5 text-[#7b3fc7]" />
             <span>Guardian Platform Architecture</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
             One connected view{' '}
             <span className="text-gradient-hero">of healthcare.</span>
           </h2>
@@ -164,11 +164,11 @@ export default function PlatformSection() {
 
         {/* Top Product Architecture Flow Visualization */}
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-          className="mb-10 rounded-2xl bg-white border border-[#d6cde2] p-5 sm:p-6 shadow-[0_12px_36px_rgba(28,22,54,0.06)]"
+          className="mb-8 rounded-2xl bg-white border border-[#e1e1e5] p-5 sm:p-6 shadow-[0_12px_36px_rgba(28,22,54,0.05)]"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {architectureFlow.map((step, idx) => (

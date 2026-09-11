@@ -108,29 +108,29 @@ export default function SolutionsSection() {
   const CurrentIcon = current.icon;
 
   return (
-    <section id="solutions" className="relative py-24 lg:py-32 bg-[#ede6f6] overflow-hidden border-t border-[#d6cde2]">
+    <section id="solutions" className="relative py-16 sm:py-20 bg-gradient-to-b from-[#f8f6fc] via-[#f3eef9]/50 to-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/14 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-[650px] h-[450px] bg-[#ff7a57]/12 blur-[150px] rounded-full" />
+        <div className="absolute top-1/3 left-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/10 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 right-1/4 w-[650px] h-[450px] bg-[#ff7a57]/10 blur-[150px] rounded-full" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-14 lg:mb-16"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <Briefcase className="w-3.5 h-3.5 text-[#7b3fc7]" />
             <span>Connected Healthcare Ecosystem</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
             Built around the work{' '}
             <span className="text-gradient-hero">healthcare organizations need to get done.</span>
           </h2>
@@ -171,7 +171,7 @@ export default function SolutionsSection() {
                   className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border relative group focus:outline-none flex items-center justify-between ${
                     isSelected
                       ? 'bg-white border-[#7b3fc7] shadow-[0_8px_24px_rgba(123,63,199,0.18)] translate-x-1 sm:translate-x-2'
-                      : 'bg-white/90 hover:bg-white border-[#d6cde2] hover:border-[#7b3fc7]/40 shadow-xs'
+                      : 'bg-white hover:bg-white border-[#e1e1e5] hover:border-[#7b3fc7]/40 shadow-xs'
                   }`}
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
@@ -222,13 +222,13 @@ export default function SolutionsSection() {
 
           {/* Right Column: Detailed Ecosystem Spotlight Console (6 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.25 }}
+            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.2 }}
             className="lg:col-span-6"
           >
-            <div className="h-full bg-white rounded-3xl border border-[#d6cde2] p-6 sm:p-8 shadow-[0_16px_48px_rgba(28,22,54,0.08)] flex flex-col justify-between relative overflow-hidden">
+            <div className="h-full bg-white rounded-3xl border border-[#e1e1e5] p-6 sm:p-8 shadow-[0_16px_48px_rgba(28,22,54,0.06)] flex flex-col justify-between relative overflow-hidden">
               
               <AnimatePresence mode="wait">
                 <motion.div

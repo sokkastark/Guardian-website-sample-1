@@ -75,7 +75,7 @@ export default function GuardianJourney() {
   };
 
   return (
-    <section id="journey" className="relative py-24 lg:py-32 bg-white overflow-hidden border-t border-[#e1e1e5]">
+    <section id="journey" className="relative py-16 sm:py-20 bg-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-[#7b3fc7]/5 blur-[160px] rounded-full" />
@@ -86,11 +86,11 @@ export default function GuardianJourney() {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 lg:mb-16"
+          className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 sm:mb-12"
         >
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f2ecf9] border border-[#7b3fc7]/20 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">

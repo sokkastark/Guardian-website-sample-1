@@ -102,24 +102,24 @@ export default function AudienceSwitcher() {
   const CurrentIcon = current.icon;
 
   return (
-    <section id="audiences" className="relative py-24 lg:py-32 bg-[#f5f0fa] overflow-hidden border-t border-[#d6cde2]">
+    <section id="audiences" className="relative py-16 sm:py-20 bg-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 right-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/12 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 left-1/4 w-[600px] h-[400px] bg-[#ff7a57]/10 blur-[140px] rounded-full" />
+        <div className="absolute top-1/3 right-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/8 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 left-1/4 w-[600px] h-[400px] bg-[#ff7a57]/8 blur-[140px] rounded-full" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-10"
+          className="max-w-3xl mb-8 sm:mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f2ecf9] border border-[#7b3fc7]/20 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <Users className="w-3.5 h-3.5 text-[#7b3fc7]" />
             <span>Who We Serve</span>
           </div>
@@ -136,11 +136,11 @@ export default function AudienceSwitcher() {
 
         {/* Perspective Switcher Toggle Controls */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.55, ease: 'easeOut', delay: 0.1 }}
-          className="inline-flex p-1.5 rounded-full bg-white border border-[#d6cde2] mb-12 shadow-xs"
+          className="inline-flex p-1.5 rounded-full bg-white border border-[#e1e1e5] mb-8 sm:mb-10 shadow-xs"
         >
           <button
             onClick={() => setActiveTab('providers')}
@@ -184,7 +184,7 @@ export default function AudienceSwitcher() {
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
             >
             {/* Left Column: Narrative & Operational Pillars (6 cols) */}
-            <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-[#d6cde2] shadow-[0_12px_36px_rgba(28,22,54,0.06)] flex flex-col justify-between">
+            <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-[#e1e1e5] shadow-[0_12px_36px_rgba(28,22,54,0.05)] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-3 rounded-2xl bg-[#f2ecf9] text-[#7b3fc7] shadow-2xs">
@@ -211,7 +211,7 @@ export default function AudienceSwitcher() {
                   {current.pillars.map((pillar, idx) => (
                     <div
                       key={pillar.title}
-                      className="bg-[#f8f6fc] p-3.5 rounded-xl border border-[#eae2f2]"
+                      className="bg-[#f8f6fc] p-3.5 rounded-xl border border-[#e1e1e5]"
                     >
                       <span className="text-[10px] font-mono font-bold text-[#7b3fc7] block mb-1">
                         Pillar 0{idx + 1}
@@ -242,7 +242,7 @@ export default function AudienceSwitcher() {
             </div>
 
             {/* Right Column: Dynamic Workflow / Product UI Simulation (6 cols) */}
-            <div className="lg:col-span-6 bg-white rounded-3xl border border-[#d6cde2] p-6 sm:p-8 shadow-[0_16px_48px_rgba(28,22,54,0.08)] flex flex-col justify-between relative overflow-hidden">
+            <div className="lg:col-span-6 bg-white rounded-3xl border border-[#e1e1e5] p-6 sm:p-8 shadow-[0_16px_48px_rgba(28,22,54,0.06)] flex flex-col justify-between relative overflow-hidden">
               
               <div>
                 {/* Workflow Simulation Header */}

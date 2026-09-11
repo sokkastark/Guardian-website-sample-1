@@ -78,7 +78,7 @@ export default function PeopleTechnology() {
   const CurrentIcon = currentRole.icon;
 
   return (
-    <section id="people-tech" className="relative py-24 lg:py-32 bg-white overflow-hidden border-t border-[#e1e1e5]">
+    <section id="people-tech" className="relative py-16 sm:py-20 bg-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Ambient background lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/3 w-[700px] h-[500px] bg-[#7b3fc7]/5 blur-[160px] rounded-full" />
@@ -89,18 +89,18 @@ export default function PeopleTechnology() {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-14 lg:mb-16"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f2ecf9] border border-[#7b3fc7]/20 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <Users className="w-3.5 h-3.5 text-[#7b3fc7]" />
             <span>People + Technology</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
             Technology is only valuable{' '}
             <span className="text-gradient-hero block sm:inline">when people can act on it.</span>
           </h2>
@@ -112,7 +112,7 @@ export default function PeopleTechnology() {
         </motion.div>
 
         {/* Human + Technology Split Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-10">
           
           {/* Left Column: Authentic Healthcare Photography Anchor (5 cols) */}
           <motion.div

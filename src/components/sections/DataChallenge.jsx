@@ -79,29 +79,30 @@ export default function DataChallenge() {
   ];
 
   return (
-    <section id="challenge" className="relative py-24 lg:py-32 bg-[#ede7f6] overflow-hidden border-t border-[#dcd4e8]">
+    <section id="challenge" className="relative py-16 sm:py-20 bg-gradient-to-b from-[#f8f6fc] to-[#f2ecf9]/40 overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting and subtle data grid */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-[#ff7a57]/12 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-[650px] h-[450px] bg-[#7b3fc7]/14 blur-[150px] rounded-full" />
+        <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-[#ff7a57]/10 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 right-1/4 w-[650px] h-[450px] bg-[#7b3fc7]/10 blur-[150px] rounded-full" />
+        <div className="absolute inset-0 ambient-grid opacity-15" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
-          className="max-w-3xl mb-16 lg:mb-20"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#ff7a57]/30 text-[#ff4312] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#ff7a57] animate-ping" />
             <span>The Healthcare Data Challenge</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
             Healthcare data is everywhere.{' '}
             <span className="text-[#5e5873] block sm:inline">Making sense of it is the challenge.</span>
           </h2>
@@ -115,11 +116,11 @@ export default function DataChallenge() {
 
         {/* Panoramic Interactive Data Infographic */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-          className="relative rounded-3xl bg-white border border-[#dcd4e8] p-6 sm:p-10 lg:p-12 shadow-[0_16px_48px_rgba(28,22,54,0.08)] mb-16 overflow-hidden"
+          className="relative rounded-3xl bg-white border border-[#e1e1e5] p-6 sm:p-10 lg:p-12 shadow-[0_16px_48px_rgba(28,22,54,0.06)] mb-10 sm:mb-12 overflow-hidden"
         >
           
           {/* Infographic Upper Status Header */}
@@ -291,7 +292,7 @@ export default function DataChallenge() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.55, delay: idx * 0.12, ease: 'easeOut' }}
-                className="bg-white p-6 rounded-2xl border border-[#dcd4e8] hover:border-[#ff7a57] shadow-[0_8px_24px_rgba(28,22,54,0.06)] hover:shadow-[0_16px_36px_rgba(28,22,54,0.12)] transition-all group"
+                className="bg-white p-6 rounded-2xl border border-[#e1e1e5] hover:border-[#ff7a57] shadow-[0_8px_24px_rgba(28,22,54,0.04)] hover:shadow-[0_16px_36px_rgba(28,22,54,0.08)] transition-all group"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2.5 rounded-xl bg-[#fff2ee] text-[#ff7a57] group-hover:bg-[#ff7a57] group-hover:text-white transition-colors">

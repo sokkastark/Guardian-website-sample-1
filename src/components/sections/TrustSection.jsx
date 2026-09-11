@@ -39,7 +39,7 @@ export default function TrustSection() {
   ];
 
   return (
-    <section id="trust" className="relative py-20 lg:py-28 bg-white overflow-hidden border-t border-[#e1e1e5]">
+    <section id="trust" className="relative py-16 sm:py-20 bg-white overflow-hidden border-t border-[#e1e1e5]">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-1/2 right-1/3 w-[500px] h-[350px] bg-[#7b3fc7]/5 blur-[140px] rounded-full" />
@@ -49,11 +49,11 @@ export default function TrustSection() {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center max-w-3xl mx-auto mb-14 lg:mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f2ecf9] border border-[#7b3fc7]/20 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
             <ShieldCheck className="w-3.5 h-3.5 text-[#7b3fc7]" />

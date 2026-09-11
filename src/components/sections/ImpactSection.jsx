@@ -35,7 +35,7 @@ export default function ImpactSection() {
   ];
 
   return (
-    <section id="impact" className="relative py-24 lg:py-32 bg-gradient-to-br from-[#1c1636] via-[#241846] to-[#2d1b54] text-white overflow-hidden border-t border-white/10">
+    <section id="impact" className="relative py-16 sm:py-20 bg-gradient-to-br from-[#1c1636] via-[#241846] to-[#2d1b54] text-white overflow-hidden border-t border-white/10">
       {/* Deep brand environment ambient lighting & data mesh */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[650px] h-[500px] bg-[#7b3fc7]/25 blur-[170px] rounded-full" />
@@ -47,18 +47,18 @@ export default function ImpactSection() {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-14 lg:mb-16"
+          className="max-w-3xl mb-10 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold tracking-wide uppercase mb-4 backdrop-blur-md">
             <Award className="w-3.5 h-3.5 text-[#ff7a57]" />
             <span>Proven Healthcare Delivery</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
             Healthcare experience that{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">
               delivers results.
@@ -72,7 +72,7 @@ export default function ImpactSection() {
         </motion.div>
 
         {/* High-Impact Proof Composition: Image Anchor + 4 Verified Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8 sm:mb-10">
           
           {/* Left Column: Authentic VBC Experience Photo Anchor (5 cols) */}
           <motion.div
