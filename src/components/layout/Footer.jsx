@@ -179,14 +179,18 @@ export default function Footer() {
 
         </nav>
 
-        {/* Bottom Legal / Footer Bar */}
+        {/* Bottom Legal / Footer Bar matching Master Mockup */}
         <div className="pt-8 border-t border-[#e1e1e5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#727272]">
           <p className="font-normal">
-            © Guardian Health Service, LLC
+            © Guardian Health Service, LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-3">
             <Link to="/privacy-policy" className="hover:text-[#7b3fc7] transition-colors">
               Privacy Policy
+            </Link>
+            <span className="text-[#d6cde2]">|</span>
+            <Link to="/terms-of-service" className="hover:text-[#7b3fc7] transition-colors">
+              Terms of Service
             </Link>
             <span className="text-[#d6cde2]">|</span>
             <Link to="/careers" className="hover:text-[#7b3fc7] transition-colors">

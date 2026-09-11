@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   HeartPulse, 
   ClipboardList, 
@@ -8,312 +8,270 @@ import {
   MessageSquareHeart, 
   BarChart3, 
   ArrowRight,
-  Briefcase,
-  CheckCircle2,
-  Sparkles,
-  GitCommit
+  Sparkles
 } from 'lucide-react';
 
 export default function SolutionsSection() {
-  const [activeSolution, setActiveSolution] = useState(0);
+  const [activeNode, setActiveNode] = useState(0);
 
-  const solutions = [
+  const satellites = [
     {
       id: 'pop-health',
       title: 'Population Health',
-      subtitle: 'Stratify risk and monitor longitudinal trajectories',
-      desc: 'Stratify risk across complex patient populations, monitor chronic condition cohorts, and track longitudinal health trajectories to prevent acute escalations.',
+      angle: -90, // Top
+      color: '#a855f7',
       icon: HeartPulse,
-      tags: ['Risk Stratification', 'Cohort Monitoring', 'Longitudinal Trends'],
-      deliverables: [
-        'Automated patient risk tiering based on clinical & claims history',
-        'Cohort surveillance for diabetes, hypertension, and CHF',
-        'Cross-payer population benchmark analytics',
-      ],
-      color: '#7b3fc7',
+      desc: 'Stratify population risk and monitor longitudinal trajectories across chronic cohorts.',
     },
     {
       id: 'care-mgmt',
       title: 'Care Management',
-      subtitle: 'Orchestrate tailored multi-site care plans',
-      desc: 'Orchestrate comprehensive care plans, coordinate post-discharge transitions of care within 48 hours, and synchronize care teams across sites.',
+      angle: -30, // Top Right
+      color: '#10b981',
       icon: ClipboardList,
-      tags: ['Care Plans', 'Transition of Care', 'Team Coordination'],
-      deliverables: [
-        'Evidence-based chronic care management protocols',
-        'Post-discharge transition coordination to prevent readmissions',
-        'Multi-disciplinary care team task synchronization',
-      ],
-      color: '#ff7a57',
+      desc: 'Orchestrate comprehensive care plans and transition workflows within 48 hours.',
     },
     {
       id: 'risk-adj',
       title: 'Risk Adjustment',
-      subtitle: 'Accurate, compliant documentation and RAF capture',
-      desc: 'Deliver pre-encounter clinical intelligence, verify persistent chronic conditions, and ensure compliant, accurate RAF capture without provider burden.',
+      angle: 30, // Bottom Right
+      color: '#06b6d4',
       icon: ShieldAlert,
-      tags: ['RAF Accuracy', 'Condition Recapture', 'Documentation Prep'],
-      deliverables: [
-        'Pre-encounter clinical documentation packet for physicians',
-        'Annual persistent condition recapture verification',
-        'CMS and commercial coding compliance audits',
-      ],
-      color: '#60319d',
+      desc: 'Pre-encounter clinical intelligence and compliant persistent condition recapture.',
     },
     {
       id: 'quality',
       title: 'Quality & Performance',
-      subtitle: 'Real-time HEDIS surveillance and proactive gap closure',
-      desc: 'Surveil HEDIS and CMS quality measures in real time, automate proactive gap-closure prompts, and maximize value-based incentives.',
+      angle: 90, // Bottom
+      color: '#f97316',
       icon: Award,
-      tags: ['HEDIS Surveillance', 'CMS Registry', 'Gap Closure'],
-      deliverables: [
-        'Continuous year-round measure performance tracking',
-        'CMS Qualified Clinical Data Registry (QCDR) submission',
-        'Point-of-care gap-closure alerts integrated into EHR queues',
-      ],
-      color: '#ff4312',
+      desc: 'Real-time HEDIS surveillance, automated gap closure prompts, and MIPS compliance.',
     },
     {
       id: 'engagement',
       title: 'Patient Engagement',
-      subtitle: 'Direct outreach overcoming SDOH and booking barriers',
-      desc: 'Empower Care Navigators with targeted outreach tools to overcome patient transportation, scheduling, and social determinants of health barriers.',
+      angle: 150, // Bottom Left
+      color: '#3b82f6',
       icon: MessageSquareHeart,
-      tags: ['Navigator Outreach', 'Appointment Booking', 'SDOH Resolution'],
-      deliverables: [
-        'Empathetic phone, SMS, and telehealth outreach campaigns',
-        'Direct in-network specialist scheduling and transportation booking',
-        'Closed-loop verification of completed preventive appointments',
-      ],
-      color: '#7b3fc7',
+      desc: 'Targeted outreach overcoming SDOH barriers, transportation, and specialist booking.',
     },
     {
       id: 'analytics',
       title: 'Analytics & Intelligence',
-      subtitle: 'Executive cockpits and predictive healthcare insights',
-      desc: 'Executive performance dashboards, network utilization patterns, and predictive insights to guide strategic healthcare and clinical leadership.',
+      angle: 210, // Top Left
+      color: '#8b5cf6',
       icon: BarChart3,
-      tags: ['Executive KPIs', 'Utilization Trends', 'Predictive Insights'],
-      deliverables: [
-        'Real-time executive KPI dashboards for ACOs and MSOs',
-        'Emergency department utilization pattern detection',
-        'Contract financial performance and shared savings forecasts',
-      ],
-      color: '#9565d2',
+      desc: 'Executive cockpits, network utilization patterns, and predictive contract forecasts.',
     },
   ];
 
-  const current = solutions[activeSolution];
-  const CurrentIcon = current.icon;
-
   return (
-    <section id="solutions" className="relative py-16 sm:py-20 bg-gradient-to-b from-[#f8f6fc] via-[#f3eef9]/50 to-white overflow-hidden border-t border-[#e1e1e5]">
-      {/* Background ambient lighting */}
+    <section 
+      id="solutions" 
+      className="relative py-24 sm:py-28 lg:py-32 bg-white text-[#1c1636] overflow-hidden select-none border-t border-[#f0edf7]"
+    >
+      {/* Ambient background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-[700px] h-[550px] bg-[#7b3fc7]/10 blur-[160px] rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-[650px] h-[450px] bg-[#ff7a57]/10 blur-[150px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-to-tr from-[#7b3fc7]/5 via-[#ff7a57]/5 to-transparent rounded-full blur-[140px]" />
+        <div className="absolute inset-0 ambient-grid opacity-[0.04]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-10 sm:mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#7b3fc7]/30 text-[#7b3fc7] text-xs font-semibold tracking-wide uppercase mb-4 shadow-xs">
-            <Briefcase className="w-3.5 h-3.5 text-[#7b3fc7]" />
-            <span>Connected Healthcare Ecosystem</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1636] tracking-tight leading-tight mb-4">
-            Built around the work{' '}
-            <span className="text-gradient-hero">healthcare organizations need to get done.</span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#35304c] leading-relaxed font-normal">
-            Modular, interconnected solutions engineered to integrate directly into clinical operations, 
-            empower multidisciplinary care teams, and drive value-based contract success.
-          </p>
-        </motion.div>
-
-        {/* Connected Guardian Ecosystem Hub Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: 6 Connected Ecosystem Nodes (6 cols) */}
+          {/* ─────────────────────────────────────────────────────────────
+              LEFT COLUMN: Story Narrative & CTA Button
+              Matches Master Reference Mockup
+              ───────────────────────────────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 36 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-            className="lg:col-span-6 space-y-2.5"
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="lg:col-span-5 max-w-lg"
           >
-            <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#5e5873] flex items-center gap-1.5">
-                <GitCommit className="w-3.5 h-3.5 text-[#7b3fc7]" />
-                Interconnected Solution Nodes
-              </span>
-              <span className="text-xs text-[#7b3fc7] font-semibold">Select node to inspect</span>
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f3edf9] border border-[#7b3fc7]/25 text-[#7b3fc7] text-xs font-semibold tracking-wider uppercase mb-6 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7b3fc7] animate-pulse" />
+              <span>SOLUTIONS</span>
             </div>
 
-            {solutions.map((item, idx) => {
-              const Icon = item.icon;
-              const isSelected = activeSolution === idx;
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-[#1c1636] leading-[1.15] mb-6">
+              Built around the work{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7b3fc7] via-[#9333ea] to-[#ff7a57]">
+                healthcare organizations need to get done.
+              </span>
+            </h2>
 
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveSolution(idx)}
-                  className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border relative group focus:outline-none flex items-center justify-between ${
-                    isSelected
-                      ? 'bg-white border-[#7b3fc7] shadow-[0_8px_24px_rgba(123,63,199,0.18)] translate-x-1 sm:translate-x-2'
-                      : 'bg-white hover:bg-white border-[#e1e1e5] hover:border-[#7b3fc7]/40 shadow-xs'
-                  }`}
-                >
-                  <div className="flex items-center gap-3.5 min-w-0">
-                    <div
-                      className={`p-2.5 rounded-xl shrink-0 transition-all ${
-                        isSelected
-                          ? 'bg-[#7b3fc7] text-white shadow-md shadow-[#7b3fc7]/25'
-                          : 'bg-[#f2ecf9] text-[#7b3fc7] group-hover:bg-[#7b3fc7] group-hover:text-white'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </div>
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-[#524b6b] leading-relaxed font-normal mb-8">
+              From population health to quality, our solutions help you improve care, performance, and outcomes.
+            </p>
 
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className={`text-sm font-bold tracking-tight transition-colors ${
-                          isSelected ? 'text-[#1c1636]' : 'text-[#35304c] group-hover:text-[#1c1636]'
-                        }`}>
-                          {item.title}
-                        </span>
-                        <span className="text-[10px] font-mono text-[#adabb7] uppercase">
-                          Module 0{idx + 1}
-                        </span>
-                      </div>
-                      <p className={`text-xs truncate transition-colors ${
-                        isSelected ? 'text-[#35304c]' : 'text-[#727272]'
-                      }`}>
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </div>
+            {/* CTA Button */}
+            <div className="flex items-center gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(123,63,199,0.35)] hover:shadow-[0_8px_36px_rgba(123,63,199,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
+              >
+                <span>Explore solutions</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
 
-                  <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${
-                    isSelected ? 'text-[#7b3fc7] translate-x-1' : 'text-[#adabb7] group-hover:text-[#7b3fc7]'
-                  }`} />
-
-                  {/* Active Indicator Left Bar */}
-                  {isSelected && (
-                    <motion.div
-                      layoutId="activeSolutionBar"
-                      className="absolute left-0 top-3 bottom-3 w-1 bg-[#7b3fc7] rounded-r-full"
-                    />
-                  )}
-                </button>
-              );
-            })}
+            {/* Active Satellite Summary Drawer */}
+            <div className="mt-8 p-4 rounded-2xl bg-[#faf8fd] border border-[#ede7f6] text-xs text-[#524b6b]">
+              <div className="flex items-center gap-2 font-bold text-[#1c1636] mb-1">
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: satellites[activeNode].color }} />
+                <span>{satellites[activeNode].title}</span>
+              </div>
+              <p>{satellites[activeNode].desc}</p>
+            </div>
           </motion.div>
 
-          {/* Right Column: Detailed Ecosystem Spotlight Console (6 cols) */}
+          {/* ─────────────────────────────────────────────────────────────
+              RIGHT COLUMN: Radial Satellite Constellation Network
+              Directly reproducing the Master Reference Mockup!
+              ───────────────────────────────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.2 }}
-            className="lg:col-span-6"
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="lg:col-span-7 flex flex-col items-center justify-center relative"
           >
-            <div className="h-full bg-white rounded-3xl border border-[#e1e1e5] p-6 sm:p-8 shadow-[0_16px_48px_rgba(28,22,54,0.06)] flex flex-col justify-between relative overflow-hidden">
+            {/* The Constellation Canvas Container (520px x 520px) */}
+            <div className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center">
               
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.id}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -14 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  {/* Spotlight Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-[#eeecf5]">
-                    <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-2xl bg-[#f2ecf9] text-[#7b3fc7]">
-                        <CurrentIcon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-mono text-[#7b3fc7] uppercase tracking-wider block font-bold">
-                          Ecosystem Module 0{activeSolution + 1}
-                        </span>
-                        <h3 className="text-xl font-bold text-[#1c1636] tracking-tight">
-                          {current.title}
-                        </h3>
-                      </div>
+              {/* Outer Orbit Rings with Dashed SVG Connections */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 520 520">
+                <defs>
+                  <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#7b3fc7" stopOpacity="0.08" />
+                    <stop offset="100%" stopColor="#7b3fc7" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+
+                {/* Soft Radial Ambient Circle */}
+                <circle cx="260" cy="260" r="210" fill="url(#ringGlow)" />
+                <circle cx="260" cy="260" r="185" fill="none" stroke="#e8e2f2" strokeWidth="1.5" strokeDasharray="4 4" />
+                <circle cx="260" cy="260" r="120" fill="none" stroke="#e8e2f2" strokeWidth="1" strokeDasharray="2 3" opacity="0.6" />
+
+                {/* Radial Connector Rays from Center to 6 Satellite Positions */}
+                {satellites.map((sat, i) => {
+                  const rad = (sat.angle * Math.PI) / 180;
+                  const x = 260 + 185 * Math.cos(rad);
+                  const y = 260 + 185 * Math.sin(rad);
+                  const isActive = activeNode === i;
+
+                  return (
+                    <g key={sat.id}>
+                      <line
+                        x1="260"
+                        y1="260"
+                        x2={x}
+                        y2={y}
+                        stroke={isActive ? sat.color : '#e2dbed'}
+                        strokeWidth={isActive ? 2 : 1.2}
+                        strokeDasharray={isActive ? 'none' : '3 3'}
+                        className="transition-all duration-300"
+                      />
+                      {isActive && (
+                        <circle cx={x} cy={y} r="6" fill={sat.color} opacity="0.3" className="animate-ping" />
+                      )}
+                    </g>
+                  );
+                })}
+              </svg>
+
+              {/* ─────────────────────────────────────────────
+                  CENTRAL GUARDIAN ORB
+                  ───────────────────────────────────────────── */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="relative z-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white shadow-[0_16px_48px_rgba(123,63,199,0.18)] border border-[#ede7f6] flex flex-col items-center justify-center p-3 text-center cursor-pointer"
+              >
+                {/* Guardian Gradient Icon */}
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#ff7a57] via-[#7b3fc7] to-[#a855f7] flex items-center justify-center shadow-md mb-1 sm:mb-1.5">
+                  <div className="w-4 h-4 rounded-full bg-white/90 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-[#7b3fc7]" />
+                  </div>
+                </div>
+
+                <span className="text-xs sm:text-sm font-bold text-[#1c1636] tracking-tight">
+                  guardian
+                </span>
+                <span className="text-[8px] sm:text-[9px] font-mono text-[#7b3fc7] uppercase tracking-wider font-semibold">
+                  Core Engine
+                </span>
+              </motion.div>
+
+              {/* ─────────────────────────────────────────────
+                  6 SURROUNDING SATELLITE NODES
+                  ───────────────────────────────────────────── */}
+              {satellites.map((sat, idx) => {
+                const Icon = sat.icon;
+                const rad = (sat.angle * Math.PI) / 180;
+                // Responsive distance: 135px on small, 185px on desktop (relative to 520px viewBox)
+                const distancePct = 35.5; // percentage from center
+                const xPct = 50 + distancePct * Math.cos(rad);
+                const yPct = 50 + distancePct * Math.sin(rad);
+                const isActive = activeNode === idx;
+
+                return (
+                  <motion.button
+                    key={sat.id}
+                    onClick={() => setActiveNode(idx)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      left: `${xPct}%`,
+                      top: `${yPct}%`,
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                    className={`absolute z-30 flex flex-col items-center group focus:outline-none transition-all duration-300`}
+                  >
+                    {/* Circular Icon Node */}
+                    <div
+                      className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-md ${
+                        isActive
+                          ? 'shadow-[0_8px_24px_rgba(123,63,199,0.3)] scale-110 ring-2 ring-offset-2'
+                          : 'bg-white hover:bg-[#faf8fd] border border-[#ede7f6]'
+                      }`}
+                      style={{
+                        backgroundColor: isActive ? sat.color : '#ffffff',
+                        color: isActive ? '#ffffff' : sat.color,
+                        ringColor: sat.color,
+                      }}
+                    >
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
 
-                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#f8f6fc] border border-[#e1e1e5] text-[#35304c]">
-                      Connected
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-[#35304c] leading-relaxed">
-                    {current.desc}
-                  </p>
-
-                  {/* Tags Pill Bar */}
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {current.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-[#f2ecf9] text-[#7b3fc7] border border-[#7b3fc7]/15"
-                      >
-                        {tag}
+                    {/* Satellite Text Label */}
+                    <div className="mt-1.5 sm:mt-2 text-center max-w-[90px] sm:max-w-[120px]">
+                      <span className={`text-[10px] sm:text-xs font-bold tracking-tight block leading-tight transition-colors ${
+                        isActive ? 'text-[#1c1636]' : 'text-[#524b6b] group-hover:text-[#1c1636]'
+                      }`}>
+                        {sat.title}
                       </span>
-                    ))}
-                  </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
 
-                  {/* 3 Key Functional Deliverables */}
-                  <div className="space-y-2.5 pt-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#adabb7] block mb-2">
-                      Operational Capabilities
-                    </span>
-                    {current.deliverables.map((deliv, idx) => (
-                      <div key={idx} className="flex items-start gap-3 text-xs text-[#35304c]">
-                        <div className="p-0.5 rounded-full bg-[#f2ecf9] text-[#7b3fc7] mt-0.5 shrink-0">
-                          <CheckCircle2 className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="leading-snug font-medium">{deliv}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Bottom Integrated Architecture Ribbon */}
-              <div className="pt-6 mt-6 border-t border-[#eeecf5] flex items-center justify-between text-xs text-[#727272]">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#7b3fc7]" />
-                  <span>Integrated with Guardian Master Engine</span>
-                </div>
-                <a
-                  href="#audiences"
-                  className="font-bold text-[#7b3fc7] hover:text-[#9565d2] flex items-center gap-1"
-                >
-                  <span>Who We Serve</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
+            {/* ─────────────────────────────────────────────────────────
+                HANDWRITTEN ANNOTATION (Matching Master Reference Mockup)
+                ───────────────────────────────────────────────────────── */}
+            <div className="w-full text-right pr-6 mt-2">
+              <span className="font-['Caveat',cursive] text-2xl sm:text-3xl text-[#7b3fc7]/85 -rotate-3 inline-block tracking-wide">
+                Connected solutions. Real impact.
+              </span>
             </div>
           </motion.div>
 
         </div>
-
       </div>
     </section>
   );

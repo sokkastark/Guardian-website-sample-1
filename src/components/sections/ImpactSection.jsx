@@ -1,160 +1,202 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Stethoscope, LineChart, CheckCircle2, Sparkles, ArrowRight } from 'lucide-react';
+import { 
+  ArrowUpRight, 
+  ArrowDownRight, 
+  Zap, 
+  UserCheck, 
+  BarChart3, 
+  ShieldCheck, 
+  Users, 
+  ArrowRight 
+} from 'lucide-react';
 
 export default function ImpactSection() {
-  const verifiedPillars = [
+  const pillars = [
+    { label: 'Real-world experience', icon: UserCheck },
+    { label: 'Proven methodologies', icon: BarChart3 },
+    { label: 'Measurable outcomes', icon: ShieldCheck },
+    { label: 'Long-term partnerships', icon: Users },
+  ];
+
+  const statCards = [
     {
-      label: 'Clinical Pedigree',
-      headline: 'Physician-Network Roots',
-      desc: 'Founded and guided by practicing clinicians to solve real-world clinical workflow, care gap, and documentation challenges.',
-      icon: Stethoscope,
-      badge: 'Clinician-Founded',
+      title: 'Improved care gap closure',
+      stat: '35%',
+      desc: 'Average improvement across value-based programs',
+      icon: ArrowUpRight,
+      color: '#38bdf8',
+      bgGlow: 'rgba(56, 189, 248, 0.2)',
     },
     {
-      label: 'Operational Governance',
-      headline: 'Full-Stack Delivery',
-      desc: 'Pairing advanced data integration technology with dedicated operational specialists who execute care plans directly alongside your teams.',
-      icon: ShieldCheck,
-      badge: 'Dedicated Teams',
+      title: 'Reduced avoidable utilization',
+      stat: '28%',
+      desc: 'Through proactive outreach and care coordination',
+      icon: ArrowDownRight,
+      color: '#10b981',
+      bgGlow: 'rgba(16, 185, 129, 0.2)',
     },
     {
-      label: 'Performance Model',
-      headline: 'Value-Based Alignment',
-      desc: 'Purpose-built specifically to support downside risk, ACO shared savings, and payer quality incentive programs.',
-      icon: Award,
-      badge: 'Shared Accountability',
-    },
-    {
-      label: 'Longitudinal Architecture',
-      headline: 'Connected Intelligence',
-      desc: 'Reconciling claims lag with real-time EHR and ADT events into an enriched, actionable patient timeline.',
-      icon: LineChart,
-      badge: 'Master Chart',
+      title: 'Faster time to insight',
+      stat: '60%',
+      desc: 'Reduction in data-to-action cycle',
+      icon: Zap,
+      color: '#a855f7',
+      bgGlow: 'rgba(168, 85, 247, 0.2)',
     },
   ];
 
   return (
-    <section id="impact" className="relative py-16 sm:py-20 bg-gradient-to-br from-[#1c1636] via-[#241846] to-[#2d1b54] text-white overflow-hidden border-t border-white/10">
-      {/* Deep brand environment ambient lighting & data mesh */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[650px] h-[500px] bg-[#7b3fc7]/25 blur-[170px] rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-[600px] h-[400px] bg-[#ff7a57]/15 blur-[150px] rounded-full" />
-        <div className="absolute inset-0 ambient-grid opacity-15" />
+    <section 
+      id="experience" 
+      className="relative py-24 sm:py-28 lg:py-32 bg-[#090614] text-white overflow-hidden select-none"
+    >
+      {/* ─────────────────────────────────────────────────────────────
+          CINEMATIC CLINICIAN BACKGROUND PHOTOGRAPHY
+          Doctor looking up-right towards the future of healthcare
+          ───────────────────────────────────────────────────────────── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/images/experience-doctor.jpg"
+          alt="Healthcare Clinician with Stethoscope looking towards the future"
+          className="w-full h-full object-cover object-[55%_center] lg:object-[50%_center] opacity-80 lg:opacity-90 brightness-105 contrast-105"
+        />
+
+        {/* Soft edge blend for top & bottom to connect cleanly with adjacent sections */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#090614] via-transparent via-50% to-[#090614]" />
+
+        {/* Left side text protection backdrop for 100% crisp typography */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-gradient-to-r from-[#090614] via-[#090614]/85 to-transparent" />
+
+        {/* Right side subtle shade behind cards */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-1/3 bg-gradient-to-l from-[#090614]/40 via-transparent to-transparent hidden lg:block" />
+
+        {/* Ambient Grid */}
+        <div className="absolute inset-0 ambient-grid opacity-10 pointer-events-none" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-3xl mb-10 sm:mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold tracking-wide uppercase mb-4 backdrop-blur-md">
-            <Award className="w-3.5 h-3.5 text-[#ff7a57]" />
-            <span>Proven Healthcare Delivery</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-            Healthcare experience that{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">
-              delivers results.
-            </span>
-          </h2>
-
-          <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal">
-            Guardian connects technology with healthcare operational expertise to deliver measurable, 
-            sustainable value across clinical, financial, and regulatory benchmarks.
-          </p>
-        </motion.div>
-
-        {/* High-Impact Proof Composition: Image Anchor + 4 Verified Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Authentic VBC Experience Photo Anchor (5 cols) */}
+          {/* ─────────────────────────────────────────────────────────────
+              LEFT COLUMN: Narrative, 4 Horizontal Feature Badges & CTA
+              ───────────────────────────────────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="lg:col-span-6 max-w-xl"
+          >
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-semibold tracking-wider uppercase mb-6 backdrop-blur-md shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff7a57] animate-pulse" />
+              <span>OUR EXPERIENCE</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] mb-6 drop-shadow-md">
+              Healthcare experience that{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-pink-200 to-[#ff7a57]">
+                delivers results.
+              </span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-purple-100/85 leading-relaxed font-normal mb-8">
+              Decades of clinical, operational, and technical expertise powering measurable improvements for healthcare organizations.
+            </p>
+
+            {/* 4 Feature Badges in a Horizontal Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+              {pillars.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={idx}
+                    className="flex flex-col items-center text-center p-3 rounded-xl bg-white/[0.06] border border-white/10 backdrop-blur-md hover:bg-white/[0.12] transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#7b3fc7]/30 text-purple-200 flex items-center justify-center mb-2">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-[11px] font-semibold text-white/90 leading-tight">
+                      {item.label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* CTA Button */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#7b3fc7] via-[#8b5cf6] to-[#a855f7] hover:from-[#8b5cf6] hover:to-[#c084fc] shadow-[0_6px_28px_rgba(147,51,234,0.55)] hover:shadow-[0_8px_36px_rgba(147,51,234,0.75)] hover:scale-[1.02] active:scale-95 transition-all duration-300 group"
+            >
+              <span>Explore our approach</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </motion.div>
+
+          {/* ─────────────────────────────────────────────────────────────
+              RIGHT COLUMN: 3 Stacked Frosted Glass Metric Cards
+              Directly reproducing Master Mockup!
+              ───────────────────────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl flex flex-col justify-end min-h-[420px] lg:min-h-[500px]"
+            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.15 }}
+            className="lg:col-span-5 lg:col-start-8 space-y-3.5 max-w-[390px] w-full lg:ml-auto"
           >
-            <img
-              src="/images/vbc-experience.webp"
-              alt="Guardian Value-Based Care Experience"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-              loading="lazy"
-            />
-            {/* Subtle Gradient Veil */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1c1636] via-[#1c1636]/40 to-transparent" />
+            {statCards.map((card, idx) => {
+              const Icon = card.icon;
 
-            {/* Overlaid Editorial Banner */}
-            <div className="relative z-10 p-6 sm:p-8">
-              <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#ff7a57] uppercase mb-1">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Value-Based Care Foundation</span>
-                </div>
-                <h4 className="text-base font-bold text-white mb-1">
-                  Physician-Led Operational Rigor
-                </h4>
-                <p className="text-xs text-purple-100/90 leading-relaxed">
-                  Every algorithm, queue, and workflow is vetted by clinicians who understand real-world patient complexity.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: 4 Verified Structural Pillars (7 cols) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {verifiedPillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
               return (
                 <motion.div
-                  key={pillar.headline}
-                  initial={{ opacity: 0, y: 36 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
-                  className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group"
+                  key={idx}
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className="relative rounded-2xl p-4 sm:p-5 bg-[#0e0920]/75 hover:bg-[#0e0920]/90 backdrop-blur-2xl border border-white/15 shadow-[0_12px_36px_rgba(0,0,0,0.4)] transition-all duration-300 group"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 rounded-xl bg-white/10 text-purple-200 group-hover:bg-[#7b3fc7] group-hover:text-white transition-colors">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono uppercase text-purple-200/80 bg-white/10 px-2.5 py-0.5 rounded-full border border-white/15 font-semibold">
-                        {pillar.badge}
-                      </span>
+                  <div className="flex items-start gap-4">
+                    {/* Stat Icon Badge */}
+                    <div 
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform"
+                      style={{ backgroundColor: card.bgGlow, color: card.color }}
+                    >
+                      <Icon className="w-5 h-5" />
                     </div>
 
-                    <span className="text-xs font-mono text-purple-200 block mb-1">
-                      {pillar.label}
-                    </span>
-
-                    <h3 className="text-base font-bold text-white mb-2 tracking-tight">
-                      {pillar.headline}
-                    </h3>
-
-                    <p className="text-xs text-purple-100/80 leading-relaxed">
-                      {pillar.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 mt-6 border-t border-white/10 flex items-center gap-1.5 text-xs text-purple-200 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7a57]" />
-                    <span>Clinically Validated Foundation</span>
+                    {/* Stat Content */}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline justify-between mb-0.5">
+                        <span className="text-xs sm:text-sm font-semibold text-purple-200/90 leading-tight">
+                          {card.title}
+                        </span>
+                        <span 
+                          className="text-2xl sm:text-3xl font-black tracking-tight ml-2"
+                          style={{ color: card.color }}
+                        >
+                          {card.stat}
+                        </span>
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-purple-200/60 leading-snug">
+                        {card.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
-          </div>
+
+            {/* Handwritten script annotation */}
+            <div className="pt-2 text-right pr-2">
+              <span className="font-['Caveat',cursive] text-2xl sm:text-3xl text-purple-200/80 -rotate-3 inline-block tracking-wide">
+                Experience that makes a difference.
+              </span>
+            </div>
+          </motion.div>
 
         </div>
-
       </div>
     </section>
   );
