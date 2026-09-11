@@ -24,6 +24,18 @@
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-hero-dark {
+  background: linear-gradient(135deg, #e9d5ff 0%, #ffffff 40%, #ff9b7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-light {
+  background: linear-gradient(135deg, #f3e8ff 0%, #ffffff 50%, #ff9b7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-gradient-purple {
   background: linear-gradient(135deg, #60319d 0%, #7b3fc7 50%, #9565d2 100%);
   -webkit-background-clip: text;

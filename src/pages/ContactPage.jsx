@@ -75,11 +75,11 @@ export default function ContactPage() {
       {/* ─────────────────────────────────────────────────────────────
           SECTION 1: HERO
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 bg-[#0d1527] text-white overflow-hidden">
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 bg-gradient-to-b from-[#120b24] via-[#1a1233] to-[#241744] text-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-1/4 left-1/4 w-[700px] h-[500px] bg-[#7b3fc7]/25 blur-[160px] rounded-full" />
-          <div className="absolute bottom-10 right-1/4 w-[550px] h-[380px] bg-[#ff7a57]/15 blur-[150px] rounded-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1527]/70 to-[#0d1527]" />
+          <div className="absolute top-1/4 left-1/4 w-[700px] h-[500px] bg-gradient-to-tr from-[#7b3fc7]/25 via-[#9565d2]/15 to-transparent blur-[140px] rounded-full" />
+          <div className="absolute bottom-10 right-1/4 w-[550px] h-[380px] bg-[#ff7a57]/15 blur-[140px] rounded-full" />
+          <div className="absolute inset-0 ambient-grid opacity-15" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -95,7 +95,7 @@ export default function ContactPage() {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-6">
-              Let’s talk about what’s next <span className="text-gradient-hero">for your organization.</span>
+              Let’s talk about what’s next <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-[#ff7a57]">for your organization.</span>
             </h1>
 
             <p className="text-base sm:text-xl text-purple-100/90 leading-relaxed max-w-3xl mb-10 font-normal">

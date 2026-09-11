@@ -14,11 +14,11 @@ export default function ChildPagePlaceholder({
       {/* ─────────────────────────────────────────────────────────────
           HERO: Category & Page Development Stage
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-24 bg-[#0d1527] text-white overflow-hidden">
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-24 bg-gradient-to-b from-[#120b24] via-[#1a1233] to-[#241744] text-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-[#7b3fc7]/20 blur-[150px] rounded-full" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[450px] bg-gradient-to-tr from-[#7b3fc7]/20 via-[#9565d2]/15 to-transparent blur-[140px] rounded-full" />
           <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] bg-[#ff7a57]/15 blur-[140px] rounded-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1527]/70 to-[#0d1527]" />
+          <div className="absolute inset-0 ambient-grid opacity-15" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
